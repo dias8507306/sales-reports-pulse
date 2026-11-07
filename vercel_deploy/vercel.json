@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    { "source": "/leads", "destination": "/card.html" },
+    { "source": "/sales", "destination": "/card.html" }
+  ],
+  "headers": [
+    { "source": "/(.*)", "headers": [
+      { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+      { "key": "Cache-Control", "value": "no-cache" }
+    ] }
+  ]
+}

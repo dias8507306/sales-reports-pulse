@@ -1,0 +1,18 @@
+# secrets / local
+.env
+.env.*
+!.env.example
+.vercel/
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.db
+*.log
+*.xlsx
+_check/
+# build output of `node инструменты/собрать.js` (sources: Атлас_отчёты.html, card.html, atlas_v4_assets/, demo/)
+vercel_deploy/*
+!vercel_deploy/vercel.json
+!vercel_deploy/.vercelignore

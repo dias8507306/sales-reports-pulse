@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>EduApp · күнделікті есеп</title>
+<meta property="og:title" content="EduApp · күнделікті есеп">
+<meta property="og:description" content="Лидтер мен сатылым бойынша күнделікті карточка — графиктермен">
+<meta name="theme-color" content="#16224f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%233b5bdb'/%3E%3Cpath d='M9 22l5-6 4 3 5-8' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+.snapnote.ok{background:#e9f8ef;border-color:#9fdcb5;color:#1d6b3a}
+.snapnote{margin:0 0 12px;padding:9px 12px;border-radius:12px;background:#fff7e6;border:1px solid #f5d38a;color:#8a5300;font-size:13px;line-height:1.45}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{--bg:#eef2fb;--card:#fff;--ink:#0b1224;--ink2:#4a5672;--ink3:#5B677C;--line:#e6ebf4;--track:#edf1f8;--ind:#3b5bdb;--teal:#0d9488;--amb:#d97706;--vio:#7048e8;--red:#e03131;--grn:#2f9e44;--sl:#94a3b8;--ease:cubic-bezier(.2,.8,.2,1)}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+html,body{margin:0;min-height:100%}
+body{font:15px/1.45 Inter,"Segoe UI",Roboto,system-ui,-apple-system,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;
+  background:radial-gradient(900px 520px at 105% -8%,#dbe4ff 0%,rgba(219,228,255,0) 60%),radial-gradient(760px 480px at -12% 12%,#dcf7ee 0%,rgba(220,247,238,0) 55%),var(--bg)}
+.wrap{max-width:780px;margin:0 auto;padding:14px 14px 96px}
+/* ---- hero ---- */
+.hero{position:relative;overflow:hidden;isolation:isolate;border-radius:28px;padding:20px 20px 16px;color:#fff;
+  background:linear-gradient(155deg,#050816 0%,#0b1338 48%,#1a2878 100%);box-shadow:0 30px 60px -30px rgba(16,24,80,.75),inset 0 1px 0 rgba(255,255,255,.09)}
+.orb{position:absolute;border-radius:50%;pointer-events:none;z-index:-1;will-change:transform}
+.orb.o1{width:340px;height:340px;right:-90px;top:-150px;background:radial-gradient(circle,rgba(92,124,250,.75) 0%,rgba(92,124,250,0) 68%);animation:float1 16s ease-in-out infinite}
+.orb.o2{width:300px;height:300px;left:-120px;bottom:-170px;background:radial-gradient(circle,rgba(32,201,151,.5) 0%,rgba(32,201,151,0) 68%);animation:float2 19s ease-in-out infinite}
+.orb.o3{width:220px;height:220px;left:38%;top:-120px;background:radial-gradient(circle,rgba(190,75,219,.42) 0%,rgba(190,75,219,0) 70%);animation:float3 23s ease-in-out infinite}
+.gridbg{position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:24px 24px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 75% 0%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse 80% 70% at 75% 0%,#000 0%,transparent 75%)}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,40px) scale(1.15)}}
+@keyframes float2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(70px,-30px) scale(1.1)}}
+@keyframes float3{0%,100%{transform:translate(0,0)}50%{transform:translate(-60px,50px)}}
+.toprow{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.switch{display:inline-flex;padding:3px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.switch a{color:rgba(255,255,255,.78);text-decoration:none;font-weight:700;font-size:13px;padding:7px 12px;border-radius:11px;transition:background .2s,color .2s;white-space:nowrap}
+.switch a:hover{color:#fff;background:rgba(255,255,255,.1)}.switch a.on{color:#0b1224;background:linear-gradient(135deg,#fff,#dbe4ff);box-shadow:0 6px 16px -8px rgba(0,0,0,.6)}
+.xlink{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-weight:800;font-size:13px;color:var(--ind);text-decoration:none;padding:7px 12px;border-radius:11px;background:#eef2ff;transition:background .2s}.xlink:hover{background:#dbe4ff}
+.brand{display:flex;align-items:center;gap:9px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.78)}
+.brand svg{width:26px;height:26px;flex:none;filter:drop-shadow(0 4px 10px rgba(76,110,245,.6))}
+.hero h1{margin:8px 0 12px;font-size:27px;line-height:1.12;letter-spacing:-.025em;font-weight:800;background:linear-gradient(92deg,#fff 0%,#dbe4ff 55%,#96f2d7 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.daterow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.daterow button,.daterow label{height:38px;border-radius:13px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#fff;font:inherit;font-weight:600;display:inline-flex;align-items:center;gap:8px;padding:0 13px;cursor:pointer;transition:background .2s,transform .2s}
+.daterow button:hover:not(:disabled),.daterow label:hover{background:rgba(255,255,255,.16)}.daterow button:active,.daterow label:active{transform:scale(.97)}
+.daterow button{width:38px;justify-content:center;padding:0;font-size:19px}.daterow button:disabled{opacity:.3;cursor:default}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.tile{position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:11px 12px 10px;min-width:0;
+  animation:rise .7s var(--ease) both;animation-delay:var(--d,0ms)}
+.tile:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);transform:translateX(-120%);animation:sheen 2.6s var(--ease) 1s both}
+.tile small{display:block;font-size:11.5px;color:rgba(255,255,255,.72);line-height:1.25;min-height:29px}.tile b{display:block;font-size:30px;line-height:1.05;margin-top:4px;letter-spacing:-.03em;font-weight:800}
+.tile b small{display:inline;font-size:16px;color:rgba(255,255,255,.75);font-weight:700;min-height:0}.tile i{font-style:normal;font-size:12px;color:rgba(255,255,255,.7)}.tile b.m{font-size:24px;white-space:nowrap}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes sheen{to{transform:translateX(120%)}}
+.spark{margin-top:12px;border-radius:18px;padding:10px 12px 6px;background:rgba(5,9,30,.35);border:1px solid rgba(255,255,255,.09);animation:rise .8s var(--ease) .25s both}
+.spark-h{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:rgba(255,255,255,.66)}.spark-h b{color:#fff;font-size:13px}
+.spark svg{display:block;max-width:100%;height:auto;overflow:visible;margin-top:4px}
+.sp-line{fill:none;stroke:url(#spStroke);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s var(--ease) .35s forwards;filter:drop-shadow(0 3px 8px rgba(116,143,252,.55))}
+.sp-area{fill:url(#spFill);opacity:0;animation:fade 1s ease 1s forwards}
+.sp-dot{fill:#0b1338;stroke:#a5b4fc;stroke-width:1.6;pointer-events:none}.sp-dot.on{fill:#96f2d7;stroke:#fff;stroke-width:2}
+.sp-grid{stroke:rgba(255,255,255,.09);stroke-dasharray:3 4}.sp-y{font-size:9.5px;fill:rgba(255,255,255,.45)}.sp-x{font-size:9.5px;fill:rgba(255,255,255,.5);font-weight:600}.sp-x.we{fill:rgba(255,168,168,.65)}.sp-x.on{fill:#96f2d7;font-weight:800}
+.sp-sel{stroke:rgba(150,242,215,.35);stroke-dasharray:2 3}.sp-tip{font-size:11px;font-weight:800;fill:#fff;opacity:0;transition:opacity .15s;pointer-events:none}.sp-pt:hover .sp-tip,.sp-pt:focus-within .sp-tip,.sp-pt.on .sp-tip{opacity:1}.sp-pt:hover .sp-dot{fill:#fff}
+.sp-pulse{fill:none;stroke:#96f2d7;stroke-width:2;transform-box:fill-box;transform-origin:center;animation:pulse 2s ease-out infinite}
+.sp-hit{fill:transparent;cursor:pointer;outline:none}
+@keyframes draw{to{stroke-dashoffset:0}}@keyframes fade{to{opacity:1}}
+@keyframes pulse{0%{transform:scale(1);opacity:.9}100%{transform:scale(3.2);opacity:0}}
+/* ---- sections ---- */
+.sec{position:relative;background:var(--card);border-radius:24px;padding:18px 16px 16px;margin-top:14px;border:1px solid rgba(230,235,244,.9);
+  box-shadow:0 1px 2px rgba(15,23,42,.04),0 22px 44px -28px rgba(30,41,110,.38);opacity:0;transform:translateY(22px) scale(.985);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.sec.in{opacity:1;transform:none}
+.sec h2{margin:0 0 14px;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2);display:flex;align-items:center;gap:10px;font-weight:800}
+.sec h2 span.n{display:inline-grid;place-items:center;min-width:30px;height:30px;padding:0 6px;border-radius:10px;background:linear-gradient(135deg,#4c6ef5,#7048e8);color:#fff;font-size:13px;letter-spacing:0;box-shadow:0 8px 18px -8px rgba(76,110,245,.9)}
+.big{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:-4px 0 12px}.big b{font-size:34px;letter-spacing:-.03em;font-weight:800}.big>span{color:var(--ink2);font-size:13.5px}
+.rows{display:grid;gap:10px}
+.row{display:grid;grid-template-columns:minmax(0,42%) 1fr auto;align-items:center;gap:10px}
+.row .lab{font-size:14px;font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.row .lab em{font-style:normal;color:var(--ink3);font-weight:500;font-size:12.5px;margin-left:5px}
+.row.sub .lab{font-weight:500;color:var(--ink2);padding-left:14px;font-size:13px;white-space:normal;line-height:1.25}
+.track{height:12px;border-radius:99px;background:var(--track);overflow:hidden;box-shadow:inset 0 1px 2px rgba(15,23,42,.06)}.row.sub .track{height:7px}
+.fill{height:100%;width:var(--w);min-width:3px;border-radius:99px;background:linear-gradient(90deg,color-mix(in srgb,var(--c) 55%,#fff),var(--c));box-shadow:0 2px 8px -2px color-mix(in srgb,var(--c) 70%,transparent);transition:width 1.15s var(--ease) var(--d,0ms)}
+.sec:not(.in) .fill{width:0}
+.val{font-weight:800;font-size:14.5px;text-align:right;min-width:48px}.row.sub .val{font-weight:600;color:var(--ink2);font-size:13px}
+.zero .fill{opacity:0}.zero .lab,.zero .val{color:var(--ink3)}
+/* gauges */
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.gauge{position:relative;border:1px solid var(--line);border-radius:22px;padding:14px 10px 12px;text-align:center;background:linear-gradient(180deg,#fff,#f8faff)}
+.gwrap{position:relative;width:132px;height:132px;margin:0 auto}
+.gwrap svg{width:132px;height:132px;display:block}
+.gtrack{fill:none;stroke:var(--track);stroke-width:12}
+.arc{fill:none;stroke-width:12;stroke-linecap:round;stroke-dashoffset:var(--off);transition:stroke-dashoffset 1.5s var(--ease) var(--d,0ms);filter:drop-shadow(0 4px 8px var(--glow))}
+.sec:not(.in) .arc{stroke-dashoffset:var(--C)}
+.gc{position:absolute;inset:0;display:grid;place-content:center;line-height:1}.gc b{font-size:30px;font-weight:800;letter-spacing:-.03em}.gc b small{font-size:15px;color:var(--ink3);font-weight:700}
+.gc i{font-style:normal;font-size:11.5px;color:var(--ink3);margin-top:5px;display:block}
+.gt{font-weight:800;font-size:14.5px;margin-top:8px}.gm{font-size:12.5px;color:var(--ink2);margin-top:2px}
+.minis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:12px}
+.mini{border:1px solid var(--line);border-radius:16px;padding:10px 12px;display:flex;align-items:center;gap:10px;background:#fbfcff}
+.mini i{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-style:normal;font-size:17px;background:linear-gradient(135deg,#eef2ff,#e6fcf5);flex:none}
+.mini b{display:block;font-size:18px;font-weight:800;letter-spacing:-.02em}.mini small{display:block;font-size:12px;color:var(--ink2);line-height:1.25}
+/* donut */
+.donut{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.dwrap{position:relative;width:150px;height:150px}.dwrap svg{width:150px;height:150px;display:block;transform:rotate(-90deg)}
+.dseg{fill:none;stroke-width:20;stroke-dashoffset:0;transition:stroke-dashoffset 1.1s var(--ease) var(--d,0ms)}
+.sec:not(.in) .dseg{stroke-dashoffset:var(--C)}
+.dc{position:absolute;inset:0;display:grid;place-content:center;text-align:center;line-height:1.05}.dc b{font-size:28px;font-weight:800;letter-spacing:-.03em}.dc small{font-size:11.5px;color:var(--ink3)}
+.legend{display:grid;gap:8px}.lg{display:flex;align-items:center;gap:9px;font-size:14px}.lg i{width:11px;height:11px;border-radius:4px;flex:none}.lg b{margin-left:auto;font-weight:800}.lg span.p{color:var(--ink3);font-weight:600;font-size:12.5px;margin-left:6px}
+.lg.zero{color:var(--ink3)}.lg.zero i{opacity:.35}
+.split{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.stack{height:16px;border-radius:99px;overflow:hidden;display:flex;gap:2px;background:var(--track);margin:6px 0 10px}.stack>div{height:100%;width:var(--w);transition:width 1.1s var(--ease) var(--d,0ms)}.sec:not(.in) .stack>div{width:0}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.kpi{border:1px solid var(--line);border-radius:16px;padding:11px 13px;background:linear-gradient(180deg,#fff,#f8faff)}.kpi small{color:var(--ink2);font-size:12.5px;display:flex;align-items:center;gap:6px}.kpi b{display:block;font-size:26px;letter-spacing:-.03em;margin-top:2px;font-weight:800}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.subh{font-size:12.5px;color:var(--ink2);font-weight:800;margin:16px 0 9px;letter-spacing:.02em}
+.prog{display:grid;gap:12px}.pg{border:1px solid var(--line);border-radius:16px;padding:12px}
+.pg-top{display:flex;align-items:baseline;gap:8px;justify-content:space-between}.pg-top b{font-size:15px}.pg-top .pct{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.pg-meta{color:var(--ink2);font-size:12.5px;margin:2px 0 8px}
+.pbar{position:relative;height:12px;border-radius:99px;background:var(--track);overflow:hidden}.pbar>div{height:100%;border-radius:99px;width:var(--w);transition:width 1.2s var(--ease)}.sec:not(.in) .pbar>div{width:0}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}.tbl th{font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;text-align:right;font-weight:800;padding:0 0 7px}.tbl th:first-child{text-align:left}
+.tbl th+th,.tbl td+td{padding-left:10px}.tbl td{padding:9px 0;border-top:1px solid var(--line);text-align:right;white-space:nowrap}.tbl td:first-child{text-align:left;white-space:normal;font-weight:700}.tbl td small{display:block;color:var(--ink3);font-weight:500;font-size:12px}
+.tbl td small.rawp{color:var(--ink2);font-weight:600;white-space:normal}.tbl tr{transition:background .2s}.tbl tbody tr:hover{background:#f6f8fe}
+.chip{display:inline-flex;align-items:center;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:800}
+.note{color:var(--ink3);font-size:12.5px;margin-top:10px;line-height:1.45}
+.grp{position:relative;border:1px solid color-mix(in srgb,var(--gc) 22%,var(--line));border-radius:20px;padding:14px 14px 14px 18px;margin-top:12px;overflow:hidden;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--gc) 7%,#fff) 0%,#fff 55%)}
+.grp:first-child{margin-top:0}.grp:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,var(--gc),color-mix(in srgb,var(--gc) 45%,#fff))}
+.grp-h{display:flex;align-items:center;gap:11px;margin-bottom:10px}.grp-h i{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-style:normal;font-size:19px;flex:none;
+  background:color-mix(in srgb,var(--gc) 14%,#fff);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--gc) 25%,transparent)}
+.grp-t b{display:block;font-size:16px;font-weight:800;letter-spacing:-.01em;color:color-mix(in srgb,var(--gc) 70%,var(--ink))}.grp-t small{display:block;font-size:12.5px;color:var(--ink2);font-weight:600}
+.grp-p{margin-left:auto;font-size:24px;font-weight:800;letter-spacing:-.02em}.grp-bar{height:8px;margin:-2px 0 12px}.grp .tbl tr:first-child th{border-top:0}
+.tm{position:relative;width:100%;margin-top:4px}
+.tmc{position:absolute}.tmc>div{position:absolute;inset:3px;border-radius:14px;padding:9px 11px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;color:#fff;
+  background:linear-gradient(140deg,color-mix(in srgb,var(--c) 70%,#fff) 0%,var(--c) 70%);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 8px 18px -12px color-mix(in srgb,var(--c) 80%,transparent);
+  transition:transform .7s var(--ease) var(--d,0ms),opacity .7s var(--ease) var(--d,0ms);cursor:default}
+.tmc>div:hover{filter:brightness(1.06)}.sec:not(.in) .tmc>div{transform:scale(.7);opacity:0}
+.tmc b{font-size:26px;font-weight:800;letter-spacing:-.03em;line-height:1}.tmc>div>span{font-size:12.5px;font-weight:700;line-height:1.2;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tmc>div>small{font-size:11px;opacity:.85;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tmc.sm b{font-size:18px}.tmc.sm>div>span{font-size:11px;-webkit-line-clamp:2}.tmc.sm>div>small{display:none}
+.tmc.xs>div{padding:4px;justify-content:center;align-items:center}.tmc.xs b{font-size:13px}.tmc.xs>div>span,.tmc.xs>div>small{display:none}
+.pcols .cbar{width:64%;max-width:64px;margin:0 auto;background:var(--track);border-radius:12px 12px 4px 4px;border-bottom:0;overflow:hidden}.pcols .cbar i{width:100%;max-width:none;border-radius:0}
+.colm b .of{font-size:12px;color:var(--ink3);font-weight:700}.colm em{display:block;font-style:normal;font-weight:800;font-size:13px;margin-top:2px}
+.funnel{display:grid;gap:8px;margin:4px 0 12px}.fstep{display:grid;grid-template-columns:150px 1fr 64px;align-items:center;gap:12px}.fl{font-weight:700;font-size:13.5px;color:var(--ink2);line-height:1.25}.fwrap{min-width:0}
+.fbar{width:var(--w);margin:0 auto;min-height:58px;display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;border-radius:10px;padding:8px 14px;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--c) 70%,#fff),var(--c));clip-path:polygon(0 0,100% 0,calc(100% - 18px) 100%,18px 100%);transition:width 1.1s var(--ease) var(--d,0ms)}
+.sec:not(.in) .fbar{width:20%}.fbar b{font-size:24px;font-weight:800;letter-spacing:-.02em}.fbar span{font-size:13px;font-weight:700;opacity:.95}
+.fstep em{font-style:normal;font-weight:800;color:var(--ink2);min-width:58px;text-align:right}
+.btn.pdf{background:linear-gradient(135deg,#fff,#fff4e6);border-color:#ffd8a8;color:#d9480f}
+.pdfmode .acts,.pdfmode .toast,.pdfmode .xlink,.pdfmode .spark-n{display:none!important}.pdfmode *,.pdfmode *:before,.pdfmode *:after{animation:none!important;transition:none!important}
+.pdfmode .sp-line{stroke-dashoffset:0}.pdfmode .sp-area{opacity:1}.pdfmode .tile:after,.pdfmode .btn.pri:after{display:none}
+.colm small{overflow-wrap:anywhere}
+.mdl{position:fixed;inset:0;z-index:80;background:rgba(8,12,30,.45);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity .25s}
+.mdl.on{opacity:1}.mdl-c{width:min(460px,100%);max-height:calc(100vh - 32px);overflow:auto;background:#fff;border-radius:22px;padding:18px;box-shadow:0 30px 70px -20px rgba(8,12,40,.55);transform:translateY(16px);transition:transform .3s var(--ease)}
+.mdl.on .mdl-c{transform:none}.mdl-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}.mdl-h b{font-size:18px}.mdl-h span{color:var(--ink3);font-size:13px}
+.mdl-s{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);margin:14px 0 8px;display:flex;justify-content:space-between}.mdl-s a{color:var(--ind);text-transform:none;letter-spacing:0;font-weight:700}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:8px;cursor:pointer;transition:border-color .2s,background .2s}
+.opt:has(input:checked){border-color:#91a7ff;background:#f3f6ff}.opt input{margin-top:3px;accent-color:#4c6ef5;width:17px;height:17px;flex:none}.opt b{display:block;font-size:14.5px}.opt small{display:block;color:var(--ink3);font-size:12px}
+.opt.sm{padding:8px 12px;font-size:14px;font-weight:600}.chkl{display:grid;gap:0}.mdl-n{color:var(--ink3);font-size:12.5px;margin:4px 0 0}
+.mdl-f{display:flex;gap:8px;margin-top:14px}.mdl-f .btn{height:46px}
+@media (max-width:480px){.mdl{align-items:flex-end;padding:0}.mdl-c{border-radius:22px 22px 0 0;width:100%}.colm small{font-size:10.5px}}
+.pcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.pcard{position:relative;border-radius:16px;padding:12px 14px 12px 18px;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 12%,#fff),#fff);border:1px solid color-mix(in srgb,var(--c) 25%,var(--line));overflow:hidden}
+.pcard:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c)}.pcard b{display:block;font-size:28px;font-weight:800;letter-spacing:-.03em;color:color-mix(in srgb,var(--c) 75%,var(--ink))}
+.pcard>span{display:block;font-weight:700;font-size:13.5px;margin-top:2px}.pcard>small{display:block;color:var(--ink3);font-size:12px;margin-top:2px}
+.tmleg{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:12.5px;color:var(--ink2)}.tmleg span{display:inline-flex;align-items:center;gap:6px}.tmleg i{width:10px;height:10px;border-radius:3px;flex:none}
+.zero-chips{margin-top:10px;font-size:12.5px;color:var(--ink3);display:flex;flex-wrap:wrap;gap:6px;align-items:center}.zero-chips span{background:var(--track);color:var(--ink2);border-radius:99px;padding:3px 10px;font-weight:600}
+.mini-g{grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:8px}.mini-g .gauge{padding:10px 4px 10px}.mini-g .gwrap,.mini-g .gwrap svg{width:92px;height:92px}.mini-g .gc b{font-size:21px}.mini-g .gt{font-size:12.5px;line-height:1.25}.mini-g .gm{font-size:11.5px}
+.cols{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:10px;align-items:start;padding-top:4px}
+.colm{text-align:center;min-width:0}.colm b{display:block;font-size:17px;font-weight:800;margin-bottom:6px}.cbar{height:130px;display:flex;align-items:flex-end;justify-content:center;border-bottom:2px solid var(--line)}
+.cbar i{display:block;width:72%;max-width:60px;height:var(--h);border-radius:12px 12px 4px 4px;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 60%,#fff),var(--c));box-shadow:0 8px 16px -10px var(--c);transition:height 1.1s var(--ease) var(--d,0ms)}
+.sec:not(.in) .cbar i{height:0}.colm small{display:block;font-size:11.5px;color:var(--ink2);margin-top:7px;line-height:1.2;font-weight:600;min-height:2.4em}
+.wlegend{display:flex;flex-wrap:wrap;gap:8px 14px;margin:6px 0 12px;font-size:12.5px;color:var(--ink2)}.wlegend span{display:inline-flex;align-items:center;gap:6px}.wlegend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.wrows{display:grid;gap:10px}.wrow{display:grid;grid-template-columns:minmax(110px,170px) 1fr 44px;align-items:center;gap:10px}
+.wname b{display:block;font-size:14px}.wname small{display:block;font-size:11.5px;color:var(--ink3)}
+#ctip{position:fixed;left:0;top:0;z-index:90;pointer-events:none;min-width:190px;max-width:min(300px,calc(100vw - 16px));background:#0f172a;color:#fff;border-radius:14px;padding:10px 12px 11px;font-size:13px;line-height:1.35;box-shadow:0 18px 40px -12px rgba(15,23,42,.55);opacity:0;transition:opacity .12s,transform .08s}
+#ctip.on{opacity:1}#ctip .h{display:flex;align-items:center;gap:7px;font-weight:700}#ctip .b{font-size:20px;font-weight:800;letter-spacing:-.02em;margin-top:2px}
+#ctip .r{display:grid;gap:3px;margin-top:7px}#ctip .r div{display:flex;align-items:center;gap:8px;color:#cbd5e1}#ctip .r span{flex:1}#ctip .r b{color:#fff}
+#ctip i{width:9px;height:9px;border-radius:3px;flex:none}#ctip .n{margin-top:7px;padding-top:6px;border-top:1px solid rgba(255,255,255,.14);color:#94a3b8;font-size:12px}
+[data-ct]{cursor:help}[data-ct]:focus{outline:none}.wbar i[data-ct]:hover,.wbar i[data-ct]:focus{filter:brightness(1.15);box-shadow:inset 0 0 0 2px rgba(255,255,255,.7)}.mini[data-ct]:hover,.wlegend span[data-ct]:hover{border-color:#94a3b8}
+.wtrack{height:16px;background:var(--track);border-radius:8px;overflow:hidden}.wbar{display:flex;height:100%;min-width:4px}.wbar i{display:block;height:100%}.wn{text-align:right;font-size:15px}
+@media (max-width:520px){.wrow{grid-template-columns:1fr 40px}.wtrack{grid-column:1/-1;grid-row:2}}
+.tasks{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.task{border:1px solid #ffd6d6;background:#fffafa;border-radius:16px;padding:12px 14px}.task-h{display:flex;align-items:center;gap:8px}.task-h i{font-style:normal}.task-h b{font-size:15px}
+.task-h span{margin-left:auto;background:#ffe3e3;color:#c92a2a;border-radius:99px;padding:2px 9px;font-weight:800;font-size:12.5px}
+.task ul{margin:8px 0 0;padding-left:18px;display:grid;gap:4px;font-size:13.5px;line-height:1.4}.howto{margin-top:12px;background:#f1f3f9;border-radius:14px;padding:10px 12px;font-size:13px;color:var(--ink2);line-height:1.45}
+.fintro{margin:0 0 12px;font-size:13.5px;line-height:1.45;color:var(--ink2)}
+.fgrid{display:grid;gap:10px}.fcard{border:1px solid var(--line);border-radius:16px;padding:12px 14px;background:#fff}.fcard.done{background:#f6fcf7;border-color:#c3ecd0}
+.fcard-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:10px}.fcard-h b{font-size:15px}.fcard-h small{color:var(--ink3);font-size:12.5px}.fok{margin-left:auto;color:#2b8a3e;font-weight:700;font-size:12.5px}
+.fcells{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}@media (max-width:560px){.fcells{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fcell{border-radius:12px;padding:10px 12px;background:#f4f6fb;display:flex;flex-direction:column;min-height:84px;min-width:0}.fcell small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.fcell b{white-space:nowrap;font-variant-numeric:tabular-nums}.fcell em{margin-top:auto}.fcell small{display:block;font-size:12px;color:var(--ink2);line-height:1.3}.fcell b{display:block;font-size:20px;font-weight:800;margin-top:3px;letter-spacing:-.02em}.fcell em{display:block;font-style:normal;font-size:11.5px;color:var(--ink3)}
+.fcell.bad{background:#fff0f0}.fcell.bad b{color:#c92a2a}.fcell.ok{background:#ebfbee}.fcell.ok b{color:#2b8a3e}.fcell.na b{color:var(--ink3)}
+.fpay{margin-top:14px;display:grid;gap:10px}.fpay-g{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fsrc{border:1px solid var(--line);border-radius:16px;padding:12px 14px;background:#fff;min-width:0}.fsrc small{display:flex;align-items:flex-start;gap:7px;font-size:13px;line-height:1.3;color:var(--ink2);min-height:2.6em}.fsrc small i{margin-top:4px}.fsrc small i{width:8px;height:8px;border-radius:50%;flex:none}.fsrc b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-top:6px;font-variant-numeric:tabular-nums}.fsrc span{display:block;font-size:13px;font-weight:650;color:var(--ink2);margin-top:2px}
+.fpay-w{display:flex;align-items:flex-start;gap:10px;border-radius:14px;padding:12px 14px;background:#fff0f0;color:#c92a2a}.fpay-w span{flex:none;line-height:1.45}.fpay-w p{margin:0;font-size:14px;line-height:1.45}.fpay-w b{font-weight:800}
+.fillhead{display:flex;align-items:center;gap:14px;border-radius:16px;padding:12px 16px;margin-bottom:12px}.fillhead b{font-size:34px;font-weight:800;letter-spacing:-.03em}.fillhead span{font-size:14px;line-height:1.4;font-weight:600}
+.fillhead.bad{background:#fff5f5;color:#c92a2a}.fillhead.ok{background:#ebfbee;color:#2b8a3e}
+.filltop{display:grid;grid-template-columns:200px 1fr;gap:14px;align-items:stretch}.fillk{display:grid;gap:10px;align-content:start}.kpi i.sum{font-style:normal;display:block;color:var(--ink2);font-size:13px;font-weight:700;margin-top:2px}
+.callout{border-radius:14px;padding:10px 12px;font-size:13.5px;background:#eef2ff;color:#364fc7;line-height:1.4}.callout.bad{background:#fff0f0;color:#c92a2a}.callout.ok{background:#ebfbee;color:#2b8a3e}
+.chks{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-top:12px}
+.chk{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:#fbfffc}.chk i{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-style:normal;font-weight:800;background:#d3f9d8;color:#2b8a3e;flex:none}
+.chk b{display:block;font-size:14px}.chk small{display:block;font-size:11.5px;color:var(--ink3)}.chk span{margin-left:auto;font-weight:800;color:#2b8a3e;font-size:13px}
+.chk.bad{background:#fff8f8;border-color:#ffd8d8}.chk.bad i{background:#ffe3e3;color:#e03131}.chk.bad span{color:#e03131;font-size:18px}
+.chip.ok{background:#ebfbee;color:#2b8a3e}.chip.bad{background:#ffe3e3;color:#e03131}.tblw{overflow-x:auto;-webkit-overflow-scrolling:touch}.tblw .tbl td,.tblw .tbl th{text-align:center}.tblw .tbl td:first-child,.tblw .tbl th:first-child{text-align:left}
+.empty{border:1px dashed #cfd8e8;background:#f7f9fd;border-radius:14px;padding:12px 14px;color:var(--ink2);font-size:14px}
+/* ---- actions ---- */
+.acts{position:sticky;bottom:12px;z-index:5;display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;padding:8px;border-radius:20px;background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(230,235,244,.9);box-shadow:0 16px 36px -20px rgba(30,41,110,.45)}
+.acts{transition:transform .35s var(--ease),opacity .3s}.acts.hid{transform:translateY(calc(100% + 24px));opacity:0;pointer-events:none}
+.btn{flex:1 1 auto;height:46px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit;font-weight:800;padding:0 16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .15s,box-shadow .2s}
+.btn:active{transform:scale(.97)}
+.btn.pri{position:relative;overflow:hidden;background:linear-gradient(135deg,#4c6ef5,#7048e8);color:#fff;border:0;box-shadow:0 10px 24px -10px rgba(76,110,245,.9)}
+.btn.pri:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-120%);animation:sheen 3.2s ease-in-out 1.5s infinite}
+.foot{color:var(--ink3);font-size:12px;margin-top:16px;text-align:center;line-height:1.55}
+.toast{position:fixed;left:50%;bottom:86px;transform:translate(-50%,10px);background:#0b1224;color:#fff;padding:11px 16px;border-radius:13px;font-weight:700;font-size:14px;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;z-index:60;box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}.toast.on{opacity:1;transform:translate(-50%,0)}
+textarea.copy{width:100%;min-height:200px;margin-top:10px;border-radius:12px;border:1px solid var(--line);padding:10px;font:13px/1.4 ui-monospace,Consolas,monospace}
+.cal{position:fixed;z-index:50;width:min(316px,calc(100vw - 20px));background:#fff;color:var(--ink);border-radius:20px;padding:14px 14px 12px;box-shadow:0 24px 60px -18px rgba(15,23,42,.45),0 2px 6px rgba(15,23,42,.08);border:1px solid var(--line)}
+.cal-h{display:flex;align-items:center;gap:6px;margin-bottom:10px}.cal-h b{flex:1;text-align:center;font-size:15px}
+.cal-h button{width:34px;height:34px;border-radius:11px;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:17px;cursor:pointer}.cal-h button:disabled{opacity:.3;cursor:default}
+.cal-w,.cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}.cal-w span{font-size:11px;font-weight:700;color:var(--ink3);text-align:center;padding:2px 0 4px;text-transform:uppercase;letter-spacing:.04em}
+.cal-g button{height:42px;border-radius:11px;border:0;background:transparent;color:var(--ink);font:inherit;font-weight:600;font-size:14px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;padding:0}
+.cal-g button small{font-size:9.5px;font-weight:600;color:var(--ink3);margin-top:2px}
+.cal-g button:hover:not(:disabled){background:#eef2fb}.cal-g button:disabled{color:#c7cfdc;cursor:default}.cal-g button:disabled small{color:transparent}
+.cal-g button.we{color:#b4235a}.cal-g button.we:disabled{color:#e6c3d1}
+.cal-g button.now{box-shadow:inset 0 0 0 1.5px #c5cfe4}
+.cal-g button.on{background:linear-gradient(135deg,#3b5bdb,#5f3dc4);color:#fff;box-shadow:0 6px 16px -8px rgba(59,91,219,.9)}.cal-g button.on small{color:rgba(255,255,255,.8)}
+.cal-f{display:flex;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}.cal-f button{flex:1;height:36px;border-radius:11px;border:1px solid var(--line);background:#f7f9fd;color:var(--ink);font:inherit;font-weight:700;font-size:13px;cursor:pointer}
+.cal-f button:disabled{opacity:.4;cursor:default}
+@media (max-width:480px){.wrap{padding:10px 10px 92px}.hero{padding:16px 14px 14px;border-radius:24px}.hero h1{font-size:22px}.tiles{gap:7px}.tile{padding:9px 9px 8px}.tile b{font-size:23px}.tile b.m{font-size:17px}.tile small{font-size:10.5px;min-height:26px}
+  .row{grid-template-columns:minmax(0,46%) 1fr auto;gap:8px}.tbl{font-size:12.5px}.tbl th+th,.tbl td+td{padding-left:6px}.chip{padding:2px 6px}.split,.donut{grid-template-columns:1fr;justify-items:center}.legend{width:100%}.duo{gap:8px}.kpi b{font-size:22px}.sec{padding:15px 12px 13px;border-radius:20px}
+  .filltop{grid-template-columns:1fr}.gauges{grid-template-columns:1fr 1fr;gap:8px}.fstep{grid-template-columns:96px 1fr 52px;gap:8px}.fl{font-size:12px}.tmc b{font-size:20px}.cbar{height:110px}.colm b{font-size:15px}.gwrap,.gwrap svg{width:112px;height:112px}.gc b{font-size:25px}}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.sec{opacity:1;transform:none}.sp-line{stroke-dashoffset:0}.sp-area{opacity:1}}
+
+.load{max-width:760px;margin:0 auto;padding:14px}.load .hero{min-height:190px}.sk{height:150px;border-radius:20px;margin-top:12px;background:linear-gradient(90deg,#e6ebf4 0%,#f3f6fb 50%,#e6ebf4 100%);background-size:200% 100%;animation:sk 1.2s linear infinite}
+@keyframes sk{to{background-position:-200% 0}}.err{background:#fff;border-radius:20px;padding:18px;margin-top:12px;color:#475569}.err b{color:#0f172a}
+</style>
+</head>
+<body>
+<div id="app"><div class="load"><header class="hero"><div class="eyebrow">EduApp</div><h1>Есеп жүктелуде…</h1></header><div class="sk"></div><div class="sk"></div></div></div>
+<script>
+const API = "";
+const RENDER = function zopCardClient_(cfg) {
+  const D = cfg.data, kind = cfg.kind, $ = id => document.getElementById(id);
+  if (kind === 'sales' && D && D.crm && Array.isArray(D.crm.main) && Array.isArray(D.cube)) (function () {   /* иесі 15.10.2026: ОП кестесі алынды — менеджер сатылымы = CRM «Успешно» бюджеті (жабылған күні); платформа — бұрынғыдай */
+    const C = D.crm, CD = C.dict || {}, OK = (CD.outcome || []).indexOf('Успешно'), SUP = (CD.funnel || []).indexOf('Техподдержка'), B0 = Date.UTC(+C.base.slice(0, 4), +C.base.slice(5, 7) - 1, +C.base.slice(8, 10));
+    const RAW = {'WhatsApp': 'Органика WhatsApp', 'Таргет': 'Таргетированная реклама в Инстаграм или Фейсбук', 'Instagram': 'Органика Instagram', 'Сарафан': 'Рекомендация (Сарафан)'};
+    const code = (k, v) => { const a = D.dict[k] || (D.dict[k] = []); let i = a.indexOf(v); if (i < 0) { a.push(v); i = a.length - 1; } return i; };
+    const L = C.main[0] ? C.main[0].length : 0, cube = D.cube.filter(r => r[0] !== 's');
+    C.main.forEach(r => { if (r[1] === SUP || r[3] !== OK || !(r[6] >= 0)) return;
+      const d = new Date(B0 + r[6] * 864e5).toISOString().slice(0, 10), n = r[L - 2], b = Math.round(r[L - 1] || 0), src = (CD.source || [])[r[5]] || '', pr = L >= 12 ? String((CD.product || [])[r[9]] || '').split(/[,|]/)[0].trim() : '';
+      cube.push(['s', d, code('src', RAW[src] || src), code('name', pr && pr !== 'Не указан' ? pr : 'Көрсетілмеген'), n ? Math.round(b / n) : 0, 0, 0, 0, 0, 0, b > 0 ? 0 : 3, n, b]); });
+    D.cube = cube; D.crmBased = true;
+  })();
+  const WD = ['дүйсенбі', 'сейсенбі', 'сәрсенбі', 'бейсенбі', 'жұма', 'сенбі', 'жексенбі'];
+  const pad = n => String(n).padStart(2, '0');
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
+  const nf = (v, sp) => { const s = String(Math.round(Math.abs(v))).replace(/\B(?=(\d{3})+(?!\d))/g, sp || ' '); return (v < 0 ? '−' : '') + s; };
+  const tn = v => nf(v, ' ');                                            // text for WhatsApp: ordinary spaces
+  const pc1 = (a, b) => b ? (Math.round(a / b * 1000) / 10).toFixed(1).replace('.', ',') + ' %' : '0 %';
+  const pc0 = (a, b) => (b ? Math.round(a / b * 100) : 0) + ' %';
+  const isoToUTC = s => Date.UTC(+s.slice(0, 4), +s.slice(5, 7) - 1, +s.slice(8, 10));
+  const utcToIso = t => { const d = new Date(t); return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}`; };
+  const dmy = s => `${s.slice(8, 10)}.${s.slice(5, 7)}.${s.slice(0, 4)}`;
+  const wd = s => WD[(new Date(isoToUTC(s)).getUTCDay() + 6) % 7];
+  const snapIso = String(D.snapshot || '').slice(0, 10), snapTxt = D.snapshot ? `${D.snapshot.slice(8, 10)}.${D.snapshot.slice(5, 7)} ${D.snapshot.slice(11, 16)}` : '—';
+  // available days
+  let minD, maxD;
+  if (kind === 'leads') { minD = D.base; maxD = snapIso || D.base; }
+  else { const ds = D.cube.map(r => r[1]).filter(d => !snapIso || d <= snapIso).sort(); minD = ds[0] || snapIso; maxD = snapIso || ds[ds.length - 1]; }   // future-dated platform rows are not offered
+  const yesterday = snapIso ? utcToIso(isoToUTC(snapIso) - 864e5) : maxD;
+  let day = /^\d{4}-\d{2}-\d{2}$/.test(cfg.date) ? cfg.date : (yesterday >= minD ? yesterday : maxD);
+  if (day < minD) day = minD; if (day > maxD) day = maxD;
+
+  /* ---------- report 1: leads ---------- */
+  function leads(iso) {
+    const di = Math.round((isoToUTC(iso) - isoToUTC(D.base)) / 864e5), F = D.dict.funnel, O = D.dict.outcome, S = D.dict.source;
+    const SUP = F.indexOf('Техподдержка'), OP = F.indexOf('ОП'), MAIL = [F.indexOf('Рассылка'), F.indexOf('Рассылка 5-6 класс Алтын сақа')];
+    const WON = O.indexOf('Успешно'), LOST = O.indexOf('Не реализовано');
+    const z = () => ({}), inc = (o, k, n) => { o[k] = (o[k] || 0) + n; };
+    const STG = D.dict.stage || [];
+    const R = {newL: 0, newIn: 0, newS: 0, src: z(), mail: 0, mailOp: 0, won: 0, wonS: 0, lost: 0, lostSrc: z(), mailLost: 0, mailLostSrc: z(), sNewSrc: z(), sWon: 0, sLost: 0, sClosed: 0};
+    D.main.forEach(r => {
+      const c = r[0], fu = r[1], oc = r[3], so = S[r[5]], cl = r[6], n = r[r.length - 2];
+      if (c === di) {
+        if (fu === SUP) { R.newS += n; inc(R.sNewSrc, so, n); }
+        else { R.newL += n; inc(R.src, so, n); if (so === 'Рассылка') { R.mail += n; if (fu === OP) R.mailOp += n; }
+          if (so !== 'Рассылка' && (fu === OP || (so && so !== 'Не указан'))) R.newIn += n; }   // кіріс — «Қайдан келді» бойынша (Атласпен бірдей, 14.10.2026)
+      }
+      if (cl === di) {
+        if (fu === SUP) { R.sClosed += n; if (oc === WON) R.sWon += n; if (oc === LOST) R.sLost += n; }
+        else { if (oc === WON) { R.won += n; R.wonS += r[r.length - 1]; } if (oc === LOST) { R.lost += n; inc(R.lostSrc, so, n); if (MAIL.indexOf(fu) >= 0) { R.mailLost += n; inc(R.mailLostSrc, so, n); } } }
+      }
+    });
+    R.g = k => R.src[k] || 0;
+    // CRM толтыру: закрытые в этот день — что не заполнено, по менеджерам; оплаты из ОП кестесі за этот день
+    if (D.fill) {
+      const MN = D.dict.manager || [], FL = {won: 0, sum: 0, noB: 0, noP: 0, noSrc: 0, lost: 0, noR: 0, man: {}};
+      D.fill.forEach(r => { if (r[0] !== di || r[1] === SUP) return; const n = r[r.length - 2], b = r[r.length - 1], nm = MN[r[2]] || '—';
+        const e = FL.man[nm] || (FL.man[nm] = {won: 0, sum: 0, noB: 0, noP: 0, noSrc: 0, lost: 0, noR: 0});
+        if (r[3] === WON) { FL.won += n; FL.sum += b; e.won += n; e.sum += b; if (!r[4]) { FL.noB += n; e.noB += n; } if (!r[5]) { FL.noP += n; e.noP += n; } if (!r[6]) { FL.noSrc += n; e.noSrc += n; } }
+        else if (r[3] === LOST && r[1] === OP) { FL.lost += n; e.lost += n; if (!r[7]) { FL.noR += n; e.noR += n; } } });   // причина отказа — только воронка ОП (рассылки закрываются массово)
+      const total = FL.won * 3 + FL.lost, miss = FL.noB + FL.noP + FL.noSrc + FL.noR;
+      FL.score = total ? (total - miss) / total : null; FL.miss = miss; R.fill = FL;
+    }
+    R.sheet = D.sheetDays ? (D.sheetDays[iso] || [0, 0]) : null;
+    return R;
+  }
+
+  // «Жауап күтіп тұр»: open leads in the stages where the client waits for the manager; days without any change in amoCRM («Изменена»), as of the snapshot.
+  // ОП work stages (недозвон, консультация, счёт) are counted apart when nothing moved for 3+ days. The state is the current one, not the report day's.
+  const WAIT_ST = {'ОП': ['НОВАЯ ЗАЯВКА', 'Неразобранное'], 'Рассылка': ['Неразобранное', 'Жауап берді'], 'Рассылка 5-6 класс Алтын сақа': ['Неразобранное', 'жауап берген']};
+  const WORK_ST = {'ОП': ['НЕДОЗВОН', 'ПРОВЕДЕННЫЕ КОНСУЛЬТАЦИИ', 'СЧЕТ ВЫСТАВЛЕН']};
+  const DBK = ['1 күнге дейін', '1–2 күн', '3–6 күн', '7+ күн'], DBC = ['#0ca678', '#f08c00', '#e8590c', '#e03131'];
+  const dBucket = d => d < 0 ? 3 : d < 1 ? 0 : d < 3 ? 1 : d < 7 ? 2 : 3;
+  // hover / tap / focus tooltip: data-ct = {h, big, c, rows: [{n, v, c}], note}
+  const ct = o => ` data-ct="${esc(JSON.stringify(o))}" tabindex="0"`;
+  if (typeof document !== 'undefined' && document.addEventListener && !document.__ct) {
+    document.__ct = 1; let tipEl = null, cur = null;
+    const E = x => String(x == null ? '' : x).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'})[c]);
+    const show = (el, ev) => {
+      if (!tipEl) { tipEl = document.createElement('div'); tipEl.id = 'ctip'; tipEl.setAttribute('role', 'tooltip'); document.body.appendChild(tipEl); }
+      if (el !== cur) { cur = el; const o = JSON.parse(el.getAttribute('data-ct'));
+        tipEl.innerHTML = `<div class="h">${o.c ? `<i style="background:${E(o.c)}"></i>` : ''}${E(o.h)}</div>${o.big ? `<div class="b">${E(o.big)}</div>` : ''}${(o.rows || []).length ? `<div class="r">${o.rows.map(r => `<div>${r.c ? `<i style="background:${E(r.c)}"></i>` : '<i></i>'}<span>${E(r.n)}</span><b>${E(r.v)}</b></div>`).join('')}</div>` : ''}${o.note ? `<div class="n">${E(o.note)}</div>` : ''}`; }
+      const r = el.getBoundingClientRect(), t = tipEl.getBoundingClientRect(), M = 8, x0 = ev && ev.clientX != null && r.width > 160 ? ev.clientX : r.left + r.width / 2;
+      let x = x0 - t.width / 2, y = r.top - t.height - 10; if (y < M) y = r.bottom + 10;
+      x = Math.max(M, Math.min(x, innerWidth - t.width - M)); tipEl.style.transform = `translate(${Math.round(x)}px,${Math.round(y)}px)`; tipEl.classList.add('on');
+    };
+    const hide = () => { cur = null; if (tipEl) tipEl.classList.remove('on'); };
+    document.addEventListener('pointermove', e => { if (e.pointerType === 'touch') return; const el = e.target.closest && e.target.closest('[data-ct]'); if (el) show(el, e); else hide(); });
+    document.addEventListener('pointerdown', e => { const el = e.target.closest && e.target.closest('[data-ct]'); if (el && e.pointerType === 'touch') show(el, e); else if (!el) hide(); });
+    document.addEventListener('focusin', e => { const el = e.target.closest && e.target.closest('[data-ct]'); if (el) show(el); });
+    document.addEventListener('focusout', hide); addEventListener('scroll', hide, {passive: true});
+  }
+  const FSHORT = {'ОП': 'ОП', 'Рассылка': 'Рассылка', 'Рассылка 5-6 класс Алтын сақа': 'Рассылка 5–6'};
+  const SNAPS = {}, SNAP_API = cfg.api || cfg.url || '';   /* өткен күн — сол күннің срезі «Срездер» парағынан (иесі 15.10.2026) */
+  function snapFor(dd) { if (!dd || dd >= snapIso || !SNAP_API) return null; if (!(dd in SNAPS)) { SNAPS[dd] = 'loading'; fetch(SNAP_API + '?snap=' + dd, {redirect: 'follow'}).then(r => r.json()).then(j => { SNAPS[dd] = j && j.idle && j.idle.length ? j : 'none'; render(); }).catch(() => { SNAPS[dd] = 'none'; render(); }); } return SNAPS[dd]; }
+  function idleNamed(dd) {
+    const s = snapFor(dd);
+    if (s && typeof s === 'object') return {rows: s.idle, at: `${s.d.slice(8, 10)}.${s.d.slice(5, 7)} ${s.t}`, past: true};
+    if (!D.idle) return null;
+    const FN = D.dict.funnel, ST = D.dict.stage, MN = D.dict.manager || [];
+    return {rows: D.idle.map(r => [MN[r[0]] || '—', FN[r[1]], ST[r[2]], r[3], r[4], r[r.length - 1]]), at: snapTxt, past: false, loading: s === 'loading'};
+  }
+  function waiting(dd) {
+    const I = idleNamed(dd); if (!I) return null;
+    const W = {n: 0, b: [0, 0, 0, 0], max: 0, stuck: 0, noTask: 0, man: {}, st: {}, stm: {}, bst: [{}, {}, {}, {}], at: I.at, past: I.past, loading: I.loading, late: {}};
+    I.rows.forEach(r => {
+      const [nm0, fn, stFull, d, t] = r, n = r[r.length - 1], sn = String(stFull || '').split('|').slice(1).join('|');
+      if (t === 2) W.late[nm0] = (W.late[nm0] || 0) + n;
+      const wait = (WAIT_ST[fn] || []).indexOf(sn) >= 0, stuck = !wait && (WORK_ST[fn] || []).indexOf(sn) >= 0 && d >= 3;
+      if (!wait && !stuck) return;
+      const nm = nm0 || '—', e = W.man[nm] || (W.man[nm] = {n: 0, b: [0, 0, 0, 0], max: 0, stuck: 0, st: {}, bs: [{}, {}, {}, {}], stuckSt: {}});
+      if (stuck) { W.stuck += n; e.stuck += n; e.stuckSt[sn] = (e.stuckSt[sn] || 0) + n; return; }
+      const bi = dBucket(d), sk = (FSHORT[fn] || fn) + ' · ' + sn;
+      W.n += n; W.b[bi] += n; e.n += n; e.b[bi] += n; e.st[sk] = (e.st[sk] || 0) + n; W.st[sk] = (W.st[sk] || 0) + n; e.bs[bi][sk] = (e.bs[bi][sk] || 0) + n;
+      const sm = W.stm[sk] || (W.stm[sk] = {}); (sm[nm] || (sm[nm] = [0, 0, 0, 0]))[bi] += n; W.bst[bi][sk] = (W.bst[bi][sk] || 0) + n;
+      if (d > e.max) e.max = d; if (d > W.max) W.max = d; if (t === 0) W.noTask += n;
+    });
+    W.list = Object.entries(W.man).filter(([, e]) => e.n || e.stuck).sort((a, b) => (b[1].b[3] - a[1].b[3]) || (b[1].b[2] - a[1].b[2]) || (b[1].n - a[1].n));
+    return W;
+  }
+  const dTxt = d => d >= 60 ? '60+ күн' : d < 1 ? '1 күнге жетпейді' : d + ' күн';
+  const SRC_TXT = {'Рассылка': ['🔗', 'Рассылка'], 'Instagram': ['🌱', 'Instagram органикасы'], 'WhatsApp': ['🌱', 'WhatsApp органикасы'], 'Таргет': ['🎯', 'Instagram / Facebook таргеті'],
+    'Сарафан': ['🤝', 'Ұсыным арқылы'], 'Самост. обращение': ['📱', 'Өздігінен хабарласқан'], 'Не указан': ['▫️', 'Дереккөзі көрсетілмеген']};
+  const SRC_ORDER = ['Рассылка', 'Instagram', 'WhatsApp', 'Таргет', 'Сарафан', 'Самост. обращение', 'Не указан'];
+  const SRC_COL = {'Рассылка': 'var(--ind)', 'Таргет': 'var(--amb)', 'WhatsApp': 'var(--teal)', 'Instagram': 'var(--vio)', 'Сарафан': '#1098ad', 'Самост. обращение': '#ae3ec9', 'Не указан': 'var(--sl)'};
+  const nzSrc = o => SRC_ORDER.concat(Object.keys(o).filter(k => SRC_ORDER.indexOf(k) < 0)).filter(k => o[k]);
+  // WhatsApp text for leads: blocks with separators, text progress bars, yesterday for comparison, conclusion at the end
+  const WLINE = '━━━━━━━━━━━━━━━━';
+  const opTasks = e => [e.noB && `${e.noB} сатылған сделкаға соманы жазыңыз («Бюджет»)`, e.noP && `${e.noP} сатылған сделкаға өнімді таңдаңыз («Продукт»)`,
+    e.noSrc && `${e.noSrc} сатылған сделкаға «Қайдан келді» өрісін толтырыңыз`, e.noR && `${e.noR} бас тартқан сделкаға себебін көрсетіңіз`].filter(Boolean);
+  const manShort = nm => { const w = String(nm).trim().split(/\s+/); return w.length > 1 ? w[0] + ' ' + w[1].charAt(0) + '.' : w[0]; };   // «Сапарова Айым Ерланқызы» → «Сапарова А.»
+  const tbar = (f, n) => { n = n || 10; const k = Math.max(0, Math.min(n, Math.round(f * n))); return '▰'.repeat(k) + '▱'.repeat(n - k); };
+  const arrow = () => '';   // a report shows numbers, not up/down signals
+  // иесінің шаблоны (14.10.2026): 1 жаңа өтінімдер · 2 жабылғандар · 3 тексеру керек · 4 әр менеджерге «тексеру / түзету» · 5 төлемдерді салыстыру (толық) · 6 техқолдау.
+  // «бүгін/кеше» орнына күндер — мәтін келесі күні жіберіледі. Атластағы leadsDayText-пен бірдей ереже.
+  const lcw = s => String(s || '').toLowerCase().replace(/ё/g, 'е').trim();
+  const isoAdd = (s, n) => utcToIso(isoToUTC(s) + n * 864e5);
+  function payVsCrm(a, b) {   // ОП кестесі («Енгізген қызметкер», төлем күні) мен CRM «Успешно» (жабылған күні) — менеджер бойынша; кестедегі қысқа аты CRM толық атындағы сөзбен сәйкестендіріледі
+    const SM = D.sheetMan; if (!SM || !Array.isArray(SM.rows)) return null;
+    const MN = D.dict.manager || [], F = D.dict.funnel, WON = D.dict.outcome.indexOf('Успешно'), SUP = F.indexOf('Техподдержка');
+    let first = Infinity; D.main.forEach(r => { if (r[0] >= 0 && r[0] < first) first = r[0]; });
+    if (isFinite(first) && a < isoAdd(D.base, first)) a = isoAdd(D.base, first);   // CRM деректері басталғаннан бері ғана
+    const out = {}, row = (k, nm) => out[k] || (out[k] = {key: k, name: nm, pn: 0, ps: 0, cn: 0, cb: 0, other: false});
+    const toCrm = e => { const w = lcw(e); return w ? MN.find(m => lcw(m).split(/\s+/).indexOf(w) >= 0) || null : null; };
+    SM.rows.forEach(([d, e, n, sm]) => { if (d < a || d > b) return; const en = String((SM.emp || [])[e] || '').trim() || 'Көрсетілмеген', k = toCrm(en), r = row(k || '~' + en, en); r.pn += n; r.ps += sm; if (!k) r.other = true; });
+    const ai = Math.round((isoToUTC(a) - isoToUTC(D.base)) / 864e5), bi = Math.round((isoToUTC(b) - isoToUTC(D.base)) / 864e5);
+    D.main.forEach(r => { if (r[6] < ai || r[6] > bi || r[1] === SUP || r[3] !== WON) return; const k = MN[r[4]] || '—', x = row(k, out[k] ? out[k].name : manShort(k)); x.cn += r[r.length - 2]; x.cb += r[r.length - 1]; });
+    return out;
+  }
+  function leadsText(iso, R, link, short) {   /* иесі 17.10: «отчёты нужно сократить» — short: тек «ҚЫСҚАША» + «ЛИДТЕР ҚАЙДАН КЕЛДІ?» */   /* иесінің сатылым шаблонымен бір үлгіде (15.10.2026): қысқаша · қайдан келді · жабылғандар · тексеру · менеджерлер · төлем ↔ CRM · техқолдау · ескертпе және күн қорытындысы */
+    const SEP = '━━━━━━━━━━━━━━', L = [], d5 = dmy(iso).slice(0, 5), pi = isoAdd(iso, -1), P = pi >= minD ? leads(pi) : null, p5 = dmy(pi).slice(0, 5), W = waiting(iso), UNK = 'Не указан';
+    const nm2 = n => { const w = String(n || '').trim().split(/\s+/); return w.length > 2 ? w[1] + ' ' + w[0] : String(n || ''); };   /* «Аты Тегі» */
+    const sg = v => (v > 0 ? '+' : v < 0 ? '−' : '±') + tn(Math.abs(v));
+    const SE = k => /таргет/i.test(k) ? '🎯' : /whatsapp/i.test(k) ? '💬' : /instagram/i.test(k) ? '📸' : /telegram/i.test(k) ? '✈️' : /рассылка/i.test(k) ? '🔗' : /сарафан|рекоменд/i.test(k) ? '🗣' : /вебинар/i.test(k) ? '🎥' : '▫️';
+    const wait3 = W ? W.b[2] + W.b[3] : null;
+    const head = () => [`📥 Жаңа өтінім — *${tn(R.newIn)}*${P ? ` (${p5}: ${tn(P.newIn)} · ${R.newIn === P.newIn ? 'өзгеріс жоқ' : sg(R.newIn - P.newIn)})` : ''}`, `✅ Сәтті жабылды — *${tn(R.won)}* · ${tn(R.wonS)} ₸ (CRM бюджеті)`, `❌ Бас тартты — *${tn(R.lost)}*`].concat(W ? [`⏳ Жауап күтіп тұр — *${tn(W.n)}* (3+ күн — ${tn(wait3)})`] : []);
+    L.push('📊 *ЗЕРДЕЛІ APP — ЛИДТЕР ЕСЕБІ*', '', `📅 *Күні:* ${dmy(iso)}`, ...(link ? [`🔗 *Есеп:* ${link}`] : []), '', '🎯 *ҚЫСҚАША*', ...head());
+    /* 1 */
+    const MAIN = ['Таргет', 'WhatsApp', 'Instagram', 'Рассылка'], oth = Object.entries(R.src).filter(([k]) => MAIN.indexOf(k) < 0 && k !== UNK).reduce((t, [, v]) => t + v, 0);
+    L.push('', SEP, '', short ? '📥 *ЛИДТЕР ҚАЙДАН КЕЛДІ?*' : '📥 *1. ЛИДТЕР ҚАЙДАН КЕЛДІ?*', `_CRM-дағы барлық жаңа сделка — ${tn(R.newL)} (рассылканы қоса)_`, '');
+    MAIN.forEach(k => L.push(`${SE(k)} ${k} — ${tn(R.g(k))}${R.newL ? ' · ' + pc0(R.g(k), R.newL) : ''}`));
+    L.push(`▫️ Басқа арналар — ${tn(oth)}`, `▫️ Көрсетілмеген — ${tn(R.g(UNK))}`, '', `📊 *Барлығы: ${tn(R.newL)}*`, `🔗 Рассылкадан ОП-ға өтті — *${tn(R.mailOp)}*`);
+    if (short) return L.join('\n');
+    /* 2 */
+    const lb = R.lostSrc, lo = Object.entries(lb).filter(([k]) => ['Таргет', 'WhatsApp', 'Рассылка', 'Instagram', UNK].indexOf(k) < 0).reduce((t, [, v]) => t + v, 0);
+    L.push('', SEP, '', `✅ *2. ${d5} ЖАБЫЛҒАН СДЕЛКАЛАР*`, '', `✅ Сәтті — *${tn(R.won)}* · ${tn(R.wonS)} ₸ (CRM бюджеті, төлем емес)`, `❌ Сәтсіз — *${tn(R.lost)}*`, `📊 Сәтті үлесі — *${R.won + R.lost ? pc0(R.won, R.won + R.lost) : '—'}*`);
+    if (R.lost) L.push(`▫️ Сәтсіз қайдан: ${['Таргет', 'WhatsApp', 'Рассылка', 'Instagram'].filter(k => lb[k]).map(k => k + ' ' + tn(lb[k])).concat(lo ? ['басқа ' + tn(lo)] : [], lb[UNK] ? ['көрсетілмеген ' + tn(lb[UNK])] : []).join(' · ')}`);
+    L.push('_Жабылғандар бұрын түскен болуы мүмкін — бұл жаңа өтінімнің конверсиясы емес._');
+    /* 3 */
+    L.push('', SEP, '', '⏳ *3. ТЕКСЕРУ КЕРЕК*', W && W.past ? `_${W.at} срезі_` : iso < snapIso ? `_${snapTxt} жағдайы (қазіргі күй — ${d5} күнгі емес)_` : `_${snapTxt} жағдайы_`, '');
+    if (!W) L.push('▫️ Дерек жоқ — Apps Script жаңа нұсқасы керек.');
+    else L.push(`📋 «НОВАЯ ЗАЯВКА» / «Жауап берді» — *${tn(W.n)}*`, `⚠️ 3+ күн жаңартылмаған — *${tn(wait3)}*`, `🔴 7+ күн жаңартылмаған — *${tn(W.b[3])}*`);
+    /* 4 — бір менеджер, бір жол: тек әрекет керек болса */
+    const late = W ? W.late : {};
+    const pv = payVsCrm(iso, iso), pv7 = payVsCrm(isoAdd(iso, -6), iso), FM = R.fill ? R.fill.man : {};
+    const names = new Set([].concat(W ? Object.keys(W.man) : [], Object.keys(FM), Object.keys(late), pv ? Object.values(pv).filter(r => !r.other).map(r => r.key) : []));
+    const rows4 = [...names].filter(nm => nm !== '—').map(nm => { const e = W && W.man[nm], f = FM[nm] || {}, p = pv && pv[nm], parts = [], old = e ? e.b[2] + e.b[3] : 0;
+      if (old) parts.push(`⏳ 3+ күн — ${tn(old)}`); if (late[nm]) parts.push(`⏰ мерзімі өткен — ${tn(late[nm])}`);
+      const empty = [['Бюджет', f.noB], ['Продукт', f.noP], ['Қайдан келді', f.noSrc]].filter(([, n]) => n); if (empty.length) parts.push(`✏️ бос: ${empty.map(([k, n]) => k + ' ' + tn(n)).join(', ')}`);
+      if (p && R.sheet && p.pn !== p.cn) parts.push(`💳 тізім ${tn(p.pn)} / CRM ${tn(p.cn)}`);
+      return {nm, parts, w: old + (late[nm] || 0) * 2 + empty.length}; });
+    const todo = rows4.filter(x => x.parts.length).sort((a, b) => b.w - a.w), okN = rows4.filter(x => !x.parts.length);
+    L.push('', SEP, '', '👤 *4. МЕНЕДЖЕРЛЕР*', '');
+    todo.forEach(x => L.push(`👤 *${nm2(x.nm)}* — ${x.parts.join(' · ')}`));
+    if (okN.length) L.push(`✅ Тәртіпте: ${okN.map(x => nm2(x.nm)).join(', ')}`);
+    if (!rows4.length) L.push('▫️ Менеджерлер бойынша дерек жоқ.');
+    if (todo.some(x => x.parts.some(t => t.startsWith('✏️')))) L.push('', `🔎 amoCRM → Сделки → «Закрыта: ${d5}» + «Ответственный: өзіңіз» → бос өрісті толтырыңыз.`);
+    /* 5 */
+    if (!R.sheet) L.push('', SEP, '', '💳 *5. САТЫЛЫМ (CRM)*', '', `🗂 CRM «Успешно» — *${tn(R.won)} · ${tn(R.wonS)} ₸* (бюджет)`, '_платформа сатылымы — сатылым карточкасында_');
+    else L.push('', SEP, '', '💳 *5. ТӨЛЕМ ↔ CRM*', '', `📒 Оқушы тізімі — *${tn(R.sheet[0]) + ' төлем · ' + tn(R.sheet[1]) + ' ₸'}*`, `🗂 CRM «Успешно» — *${tn(R.won)} · ${tn(R.wonS)} ₸* (бюджет)`);
+    if (pv && R.sheet) { const rows = Object.values(pv).filter(r => !r.other && (r.pn || r.cn)).sort((x, y) => (y.pn + y.cn) - (x.pn + x.cn));
+      if (rows.length) L.push('', ...rows.map(r => { const w = (pv7 && pv7[r.key]) || {pn: 0, cn: 0}; return `▫️ ${nm2(r.name)} — ${tn(r.pn)} / ${tn(r.cn)} (${sg(r.pn - r.cn)}) · 7 күн ${tn(w.pn)} / ${tn(w.cn)}`; }), '_тізім / CRM — айырма сделка жабылмағанын не төлем жазылмағанын білдіруі мүмкін_'); }
+    /* 6 */
+    L.push('', SEP, '', '🛠 *6. ТЕХҚОЛДАУ*', '', `📥 Жаңа — ${tn(R.newS)} · ✅ Сәтті — ${tn(R.sWon)} · ❌ Сәтсіз — ${tn(R.sLost)}`);
+    /* 7 */
+    const warn = []; if (!W) warn.push('Жауап күтіп тұрған лидтер дерегі жоқ — Apps Script жаңа нұсқасы керек.'); /* 16.10: Оқушы тізімі қолданылмайды — ескерту жоқ */
+    L.push('', SEP, '', '📝 *7. ЕСКЕРТПЕ*', '');
+    if (warn.length) L.push(...warn.map(w => '⚠️ ' + w), '');
+    L.push('🎯 *КҮН ҚОРЫТЫНДЫСЫ:*', ...head());
+    return L.join('\n');
+  }
+
+
+  /* ---------- report 2: sales ---------- */
+  const lc = s => String(s || '').toLowerCase().replace(/ё/g, 'е').replace(/[«»"„“”]/g, '');
+  const keyMatch = (keys, name) => { const n = lc(name); return String(keys || '').split(';').map(x => x.trim()).filter(Boolean).some(alt => alt.split('+').map(w => lc(w.trim())).filter(Boolean).every(w => n.indexOf(w) >= 0)); };
+  const shortName = s => {
+    const parts = String(s || '').split(' · '), tariff = (parts[1] || '').trim();
+    let t = parts[0].split(' / ')[0].replace(/\[[^\]]*\]/g, '').replace(/\d+\s*-?\s*(сынып|класс)\.?/gi, '')
+      .replace(/\d+\s*-?\s*вариант[^\s)]*/gi, '').replace(/[«»"„“”]/g, '').replace(/\s+([,.;])/g, '$1').replace(/([,.;])(\s*[,.;])+/g, '$1').replace(/^[\s,.;|:-]+|[\s,.;|:-]+$/g, '').replace(/\s{2,}/g, ' ').trim();
+    return (t || '—') + (tariff ? ' · ' + tariff : '');
+  };
+  // same rule as the server's zopPayStatus_ (copied: this client is shipped as a separate page). tests/ check that both agree.
+  const PAY_L = {paid: ['2', 'paid', 'success', 'succeeded', 'successful', 'completed', 'complete', 'approved', 'оплачен', 'оплачено', 'оплачена', 'төленді', 'төленген', 'сәтті'],
+    unpaid: ['unpaid', 'not paid', 'notpaid', 'pending', 'awaiting', 'waiting', 'new', 'created', 'issued', 'не оплачен', 'не оплачено', 'ожидает оплаты', 'төленбеген', 'күтілуде'],
+    rejected: ['failed', 'fail', 'error', 'declined', 'cancelled', 'canceled', 'refunded', 'refund', 'expired', 'отменен', 'отменён', 'отклонен', 'отклонён', 'возврат', 'қайтарылды', 'бас тартылды']};
+  const payStatus = v => { let t = String(v == null ? '' : v).trim().toLowerCase().replace(/ё/g, 'е').replace(/[_\-]+/g, ' ').replace(/\s+/g, ' '); if (!t) return 'unknown';
+    if (/^mon jan 01 1900/.test(t) || /^1900 01 01/.test(t) || t === '01.01.1900') t = '2';
+    for (const k of ['paid', 'unpaid', 'rejected']) if (PAY_L[k].indexOf(t) >= 0) return k; return 'unknown'; };
+  const PAID = st => payStatus(st) === 'paid';
+  const skipReason = r => { if (r[0] !== 'p') return ''; if (r[7] !== 1) return 'invoice жоқ'; const ps = payStatus(D.dict.pstatus[r[6]] || '');
+    if (ps !== 'paid') return {unpaid: 'төленбеген', rejected: 'бас тартылған / қайтарылған', unknown: 'статус белгісіз'}[ps];
+    return (r.length >= 13 ? r[9] : 0) !== 0 ? 'төлем күні жоқ (шот күні)' : ''; };
+  const TOT = /^(барлығы|итого|всего)$/i, OTHER = 'Басқа өнімдер';
+  const fromCatalog = !!(D.plan && D.plan.catalog && D.plan.catalog.length);   // the leads card has no D.plan
+  // каталог: лист «Өнімдер»; пока его нет — продукты из «Жоспар» в том же виде
+  const catalog = () => fromCatalog ? D.plan.catalog : D.plan.products.map(p => ({sec: p.group, name: p.name, keys: p.keys || (/алтын\s*са[қк]а/i.test(p.group) && !TOT.test(p.name) ? 'алтын сақа;алтын сака' : ''), price: p.price, always: true, plan: p.plan, coef: p.coef || 1}));
+  function sales(iso) {
+    const N = D.dict.name, SR = D.dict.src, ST = D.dict.pstatus, TY = D.dict.ptype;
+    const secs = [], secOf = name => secs.find(x => x.name === name) || (secs.push({name, items: [], plan: null}), secs[secs.length - 1]), items = [];
+    catalog().forEach(c => { const s = secOf(String(c.sec || OTHER).trim()), nm = String(c.name || '').trim();
+      if (TOT.test(nm)) { if (c.plan != null && c.plan !== '') s.plan = +c.plan; return; }
+      if (!c.keys && !c.real && (c.price == null || c.price === '')) return;   // a rule needs a name, a word or a price
+      let x = s.items.find(y => y.p.name === nm);   // same report name in one section = one line (plans add up)
+      const hasPlan = c.plan != null && c.plan !== '';
+      if (!x) { x = {p: {name: nm, price: c.price, pprice: c.pprice, plan: hasPlan ? +c.plan : null, coef: c.coef || 1, always: !!c.always}, n: 0, s: 0, pays: 0, prices: {}}; s.items.push(x); }
+      else { if (c.always) x.p.always = true; if (hasPlan) x.p.plan = (x.p.plan || 0) + +c.plan; if (x.p.price != null && x.p.price !== '' && +x.p.price !== +c.price) x.p.price = x.p.plan ? x.p.price : null; }
+      items.push({rule: c, x}); });
+    const R = {rows: 0, sum: 0, secs, src: {}, plat: {lo: 0, loS: 0, hi: 0, hiS: 0}, skipped: {}, skippedS: {}, by: {s: {n: 0, s: 0}, p: {n: 0, s: 0}}, refPrice: 0};
+    const srcMap = {}; D.plan.sources.forEach(([v, l]) => { srcMap[lc(v)] = l; });
+    const platLine = srcMap['(платформа)'] || 'Платформадан өзі сатып алды', emptyLine = srcMap['(бос)'] || 'Басқа (Не указан)';
+    D.cube.forEach(r => {
+      if (r[1] !== iso) return;
+      const from = r[0], src = SR[r[2]] || '', name = N[r[3]] || '', price = r[4], n = r[r.length - 2], sum = r[r.length - 1];
+      const why = skipReason(r); if (why) { R.skipped[why] = (R.skipped[why] || 0) + n; R.skippedS[why] = (R.skippedS[why] || 0) + sum; return; }
+      R.rows += n; R.sum += sum; R.by[from].n += n; R.by[from].s += sum; if (r.length >= 13 && r[10] === 2) R.refPrice += n;   // amount is a list price, not a paid sum
+      const line = from === 'p' ? platLine : (src ? (srcMap[lc(src)] || src) : emptyLine);
+      R.src[line] = (R.src[line] || 0) + n;
+      if (from === 'p') { if (price <= 1000) { R.plat.lo += n; R.plat.loS += sum; } else { R.plat.hi += n; R.plat.hiS += sum; } }
+      // product: first catalog row whose words are in the name and whose price fits; otherwise «Басқа өнімдер» under its own name
+      const hay = name + ' ' + (TY[r[5]] || ''), lname = lc(name).trim();
+      const nname = lc(String(name).replace(/\s*,\s*/g, '; ')).trim();   // the list holds names without commas («, » separates several choices)
+      const realHas = cell => lc(cell).trim() === lname || String(cell).split(/,\s+/).some(it => lc(it).trim() === nname);
+      const hit = items.find(({rule: c}) => (c.price == null || c.price === '' || +c.price === +price) && ((c.keys || c.real ? (c.real && realHas(c.real)) || (c.keys && keyMatch(c.keys, hay)) : true)));
+      let x = hit && hit.x;
+      if (!x) { const s = secOf(OTHER), label = shortName(name || '—'); x = s.items.find(y => y.auto && y.p.name === label);
+        if (!x) { x = {p: {name: label, coef: 1}, n: 0, s: 0, pays: 0, prices: {}, auto: true}; s.items.push(x); } }
+      x.n += n * (x.p.coef || 1); x.s += sum; x.pays += n; x.prices[price] = (x.prices[price] || 0) + n;
+      const rl = shortName(name || '—'), rw = (x.raw || (x.raw = {}))[rl] || (x.raw[rl] = {n: 0, s: 0}); rw.n += n; rw.s += sum;
+    });
+    secs.forEach(s => {
+      const grp = x => /^математика/i.test(x.p.name) ? 0 : /^ағылшын/i.test(x.p.name) ? 1 : 0;
+      s.vis = s.items.filter(x => x.p.always || x.n).sort((a, b) => (grp(a) - grp(b)) || (a.auto && b.auto ? b.n - a.n : 0));
+      s.n = s.items.reduce((a, x) => a + x.n, 0); s.s = s.items.reduce((a, x) => a + x.s, 0);
+      const ip = s.items.filter(x => x.p.plan != null && x.p.plan !== '');
+      s.itemPlans = ip.length > 0; s.planN = s.plan != null ? s.plan : ip.length ? ip.reduce((a, x) => a + +x.p.plan, 0) : null;
+      s.planS = ip.length ? ip.reduce((a, x) => a + x.p.plan * (x.p.price || x.p.pprice || 0), 0) : null;
+    });
+    const rank = s => s.name === OTHER ? 2 : s.planN != null ? 0 : 1; secs.sort((a, b) => rank(a) - rank(b));   // stable: planned sections first, «Басқа өнімдер» last
+    R.secsVis = secs.filter(s => s.vis.length || s.planN);
+    R.main = secs.find(s => s.itemPlans) || null;   // the section whose products have their own plans («Негізгі өнімдер»)
+    const order = []; D.plan.sources.forEach(([, l]) => { if (order.indexOf(l) < 0) order.push(l); });
+    Object.keys(R.src).forEach(l => { if (order.indexOf(l) < 0) order.splice(Math.max(0, order.indexOf(emptyLine)), 0, l); });
+    const ALWAYS = ['Мектепке бару', 'Маркетинг (органика)', 'Маркетинг (таргет)', 'Рассылка', platLine, 'EduApp орталықтары', emptyLine];
+    R.srcOrder = order.filter(l => R.src[l] || ALWAYS.indexOf(l) >= 0); R.platLine = platLine;
+    return R;
+  }
+  const EMO = [['мега', '📚'], ['математика.*тоқсан', '📘'], ['математика.*күнд', '⚡'], ['ағылшын.*тоқсан', '🇬🇧'], ['ағылшын.*күнд', '⚡']];
+  const emo = name => (EMO.find(([re]) => new RegExp(re, 'i').test(name)) || [, '📗'])[1];
+  const AS_EMO = ['🎓', '💥', '📚', '🚀', '🎁', '📨', '🎯', '🧩'];
+  const secEmo = s => /негізгі/i.test(s.name) ? '📚' : /пробный/i.test(s.name) ? '🧪' : /түлек/i.test(s.name) ? '🎓' : /алтын/i.test(s.name) ? '🏆' : s.name === OTHER ? '📦' : '🗂';
+  const priceTxt = x => /₸/.test(x.p.name) ? '' : x.p.price != null && x.p.price !== '' ? nf(x.p.price) + ' ₸' : Object.keys(x.prices).length ? Object.keys(x.prices).sort((a, b) => a - b).map(p => nf(+p) + ' ₸').join(', ') : x.p.pprice ? nf(x.p.pprice) + ' ₸' : '';
+  const withPrice = x => x.p.name + (priceTxt(x) ? ' · ' + priceTxt(x) : '');
+  const secHead = (s, T) => `${secEmo(s)} ${s.name} — ` + (s.planN ? `${T(pc0(s.n, s.planN))} (${tn(s.n)} / ${tn(s.planN)} дана · ${tn(s.s)}${s.planS ? ' / ' + tn(s.planS) : ''} ₸)` : T(`${tn(s.n)} дана · ${tn(s.s)} ₸`));
+  const SRC2_EMO = l => /мектеп/i.test(l) ? '🏫' : /органика/i.test(l) ? '🌱' : /таргет/i.test(l) ? '🎯' : /рассылка/i.test(l) ? '🔗' : /платформа/i.test(l) ? '📱' : /орталық/i.test(l) ? '🏢' : /вебинар/i.test(l) ? '🎥' : '▫️';
+  const itemLbl = (s, x) => { const sn = s.name.split(' · ')[0], n = x.p.name;
+    if (n.length > sn.length + 3 && lc(n).startsWith(lc(sn)) && !/^\s*\(/.test(n.slice(sn.length))) { const t = n.slice(sn.length).replace(/^[\s·—:,.-]+/, ''); return t.charAt(0).toUpperCase() + t.slice(1); }
+    return n; };
+  const subsOf = (x, s) => { if (!x.raw || (x.p.price != null && x.p.price !== '')) return [];
+    const e = Object.entries(x.raw).filter(([, r]) => r.n).sort((a, b) => b[1].n - a[1].n), generic = lc(x.p.name) === lc(s.name) || /басқа/i.test(x.p.name);
+    return e.length > 1 || generic && !(e.length === 1 && lc(e[0][0]) === lc(x.p.name)) ? e : []; };   // a «basket» line lists what was really bought
+  // WhatsApp text for sales — лидтер есебімен бірдей пішім (иесі, 14.10.2026): нөмірленген бөлімдер, «Атауы — *сан*», айырма — сөзбен, жолақ-белгілер жоқ
+  function platGap(iso, R) {   /* платформа бұл күні әдеттегіден күрт аз (выгрузка кешігуі): алдыңғы 7 күннің медианасының 25 %-ынан аз */
+    const prev = []; for (let k = 1; k <= 7; k++) { const d = utcToIso(isoToUTC(iso) - k * 864e5); if (d >= minD) prev.push(sales(d).by.p.n); }
+    prev.sort((a, b) => a - b); const med = prev.length >= 4 ? prev[Math.floor(prev.length / 2)] : 0;
+    return med >= 10 && R.by.p.n < med * .25 ? {n: R.by.p.n, med} : null;
+  }
+  function salesText(iso, R, link, short) {   /* short (иесі 17.10): жалпы сома + «ОРЫНДАЛУЫ» */   /* иесінің шаблоны 15.10.2026 (екінші нұсқа): орындалуы · жоспар/факт · жалпы нәтиже · клиенттер қайдан келді (ОП кестесі «Қайдан келді» + платформа) · ескертпе және күн қорытындысы. Лидтер мұнда жоқ. */
+    const SEP = '━━━━━━━━━━━━━━', L = [], gap = platGap(iso, R);
+    const m = v => { const r = Math.round(v * 100) / 100, t = Math.round(Math.abs(r) * 100) % 100; return tn(Math.trunc(r)) + (t ? ',' + String(t).padStart(2, '0') : '') + ' ₸'; };   /* тиын болса — сақталады */
+    const main = R.main, AS = R.secs.find(x => x !== main && /^алтын сақа$/i.test(String(x.name).trim())) || null, others = R.secs.filter(x => x !== main && x !== AS);
+    const oth = others.flatMap(sx => sx.items.filter(x => x.n).map(x => ({sx, x}))).sort((a, b) => b.x.n - a.x.n || b.x.s - a.x.s), othN = oth.reduce((t, o) => t + o.x.n, 0), othS = oth.reduce((t, o) => t + o.x.s, 0);
+    const priceOf = x => x.p.price != null && x.p.price !== '' ? +x.p.price : (x.p.pprice ? +x.p.pprice : null);
+    const sumLines = () => {
+      const out = [];
+      if (main) out.push(`📚 Негізгі өнімдер — *${main.planN ? pc0(main.n, main.planN) : 'жоспар жоқ'}* (${tn(main.n)}${main.planN ? ' / ' + tn(main.planN) : ''} дана · ${tn(main.s)}${main.planS ? ' / ' + tn(main.planS) : ''} ₸)`);
+      if (AS) out.push(`🏆 Алтын сақа — *${AS.planN ? pc0(AS.n, AS.planN) : 'жоспар жоқ'}* (${tn(AS.n)}${AS.planN ? ' / ' + tn(AS.planN) : ''} дана · ${m(AS.s)})`);
+      out.push(`📦 Басқа өнімдер — *${tn(othN)} дана · ${m(othS)}*`);
+      return out;
+    };
+    L.push('📊 *ЗЕРДЕЛІ APP — КҮНДЕЛІКТІ ЕСЕП*', '', `📅 *Күні:* ${dmy(iso)}`, ...(link ? [`🔗 *Есеп:* ${link}`] : []), '', `💰 *${gap || R.refPrice ? 'Есептегі жалпы сома' : 'Жалпы сома'}: ${m(R.sum)}* (${tn(R.rows)} дана)`, '', '🎯 *ОРЫНДАЛУЫ*', ...sumLines());
+    if (short) return L.join('\n');
+    /* 1. Жоспар / факт */
+    L.push('', SEP, '', '📈 *1. САТЫЛЫМ — ЖОСПАР / ФАКТ*');
+    if (main) {
+      const ORD = [/мега/i, /математика.*тоқсан/i, /математика.*күнд/i, /ағылшын.*тоқсан/i, /ағылшын.*күнд/i], oi = x => { const k = ORD.findIndex(re => re.test(x.p.name)); return k < 0 ? 9 : k; };
+      main.items.filter(x => x.p.plan != null || x.n).sort((a, b) => oi(a) - oi(b)).forEach(x => {
+        const pr = priceOf(x), plan = x.p.plan;
+        L.push('', `${emo(x.p.name)} *${x.p.name}${plan ? ' — ' + pc0(x.n, plan) : ''}*`);
+        if (pr != null) L.push(`💰 ${m(pr)}`); else if (priceTxt(x)) L.push(`💰 ${priceTxt(x)}`);
+        L.push(plan != null ? `🎯 Жоспар: ${tn(plan)} дана${pr != null ? ' — ' + m(plan * pr) : ''}` : '🎯 Жоспар: берілмеген', `✅ Факт: ${tn(x.n)} дана — ${m(x.s)}`);
+      });
+    }
+    if (AS) {
+      const aE = n => /рассылка/i.test(n) ? '📨' : /алдын ала|предпрод/i.test(n) ? '▫️' : /толық|комбо|пакет|акция/i.test(n) ? '🎁' : /жеңілдік|скидк/i.test(n) ? '🏷️' : /2\s*тренинг/i.test(n) ? '📗' : /тренажер/i.test(n) ? '💥' : /тест/i.test(n) ? '📝' : /миникурс|курс/i.test(n) ? '📚' : '🎓';
+      L.push('', `🏆 *Алтын сақа${AS.planN ? ' — ' + pc0(AS.n, AS.planN) : ''}*`, `🎯 Жоспар: ${AS.planN ? tn(AS.planN) + ' дана' : 'берілмеген'} · ✅ Факт: ${tn(AS.n)} дана — ${m(AS.s)}`);
+      AS.vis.forEach(x => { const pr = priceOf(x), c = x.p.coef || 1, nm = itemLbl(AS, x);
+        L.push(`${aE(x.p.name)} ${nm}${pr != null && !/₸/.test(nm) ? ' · ' + m(pr) : ''} — ${AS.planN ? pc0(x.n, AS.planN) + ' ' : ''}(${tn(x.n)}${c > 1 && x.n ? ` = ${tn(x.pays)} × ${c}` : ''})`); });
+    }
+    L.push('', `📦 *Басқа өнімдер — ${tn(othN)} дана · ${m(othS)}*`);
+    oth.forEach(({sx, x}) => { const nm = sx.name === OTHER ? x.p.name : (x.p.name === sx.name ? sx.name : sx.name.split(' · ')[0] + ' — ' + itemLbl(sx, x)); L.push(`▫️ ${nm} — ${tn(x.n)} дана — ${m(x.s)}`); });
+    L.push('', `🧾 Барлық сатылым: *${tn(R.rows)} дана — ${m(R.sum)}*`);
+    /* 2. Жалпы нәтиже (негізгі өнімдер) */
+    if (main && main.planN) {
+      L.push('', SEP, '', '💰 *2. ЖАЛПЫ НӘТИЖЕ*', '', `📊 Орындалуы: *${pc0(main.n, main.planN)}*`, '', '📦 Дана бойынша:', `🎯 Жоспар: *${tn(main.planN)} дана*`, `✅ Факт: *${tn(main.n)} дана*`);
+      if (main.planS) L.push('', '💵 Сома бойынша:', `🎯 Жоспар: *${m(main.planS)}*`, `✅ Факт: *${m(main.s)}*`);
+    }
+    /* 3. Клиенттер қайдан келді: ОП кестесі — «Қайдан келді» бойынша, платформа — өзі сатып алды (бір тізім, қосындысы = барлық сатылым) */
+    const n3 = main && main.planN ? 3 : 2;
+    L.push('', SEP, '', `📥 *${n3}. КЛИЕНТТЕР ҚАЙДАН КЕЛДІ?*`, '');
+    R.srcOrder.forEach(l => { const v = R.src[l] || 0; L.push(`${SRC2_EMO(l)} ${l} — ${tn(v)}`);
+      if (l === R.platLine && v) L.push(`   ▫️ 1 000 ₸ және одан арзан — ${tn(R.plat.lo)} дана — ${m(R.plat.loS)}`, `   ▫️ 1 000 ₸-ден қымбат — ${tn(R.plat.hi)} дана — ${m(R.plat.hiS)}`); });
+    L.push('', `📊 *Барлығы: ${tn(R.rows)} дана*`);
+    /* 4. Ескертпе: нақты мәселелер (болса) + күн қорытындысы */
+    const warn = [];
+    if (gap) warn.push(`Платформа: ${tn(gap.n)} төлем (әдетте ~${tn(gap.med)}) — выгрузка толық емес болуы мүмкін, сома нақтыланады.`);
+    if (R.refPrice) warn.push(`${tn(R.refPrice)} жазбада төленген сома жоқ — бағасы алынды.`);
+    Object.entries(R.skipped || {}).forEach(([why, n]) => { if (n && /белгісіз|күні жоқ/.test(why)) warn.push(`Есепке кірмеді: ${why} — ${tn(n)} жазба · ${m(R.skippedS[why] || 0)}.`); });
+    const auto = R.secs.filter(x => x.name === OTHER).flatMap(x => x.items.filter(y => y.auto && y.n));
+    if (auto.length) warn.push(`«Өнімдер» тізімінде жоқ атаулар (${auto.length}) «Басқа өнімдер»-ге жазылды — бөлімін тексеру керек.`);
+    L.push('', SEP, '', `📝 *${n3 + 1}. ЕСКЕРТПЕ*`, '');
+    if (warn.length) L.push(...warn.map(w => '⚠️ ' + w), '');
+    L.push('🎯 *КҮН ҚОРЫТЫНДЫСЫ:*', ...sumLines(), `💰 Жалпы сома — *${m(R.sum)}* (${tn(R.rows)} дана)`);
+    return L.join('\n');
+  }
+
+  /* ---------- drawing (vector, animated on reveal) ---------- */
+  const cu = (v, f) => `<span class="cu" data-n="${Math.round(v)}">${f ? f(v) : nf(v)}</span>`;   // counts up when its section appears
+  const GR = {good: ['#69db7c', '#2f9e44', 'rgba(47,158,68,.45)'], ind: ['#91a7ff', '#3b5bdb', 'rgba(59,91,219,.45)'], amb: ['#ffc078', '#e8590c', 'rgba(232,89,12,.4)'], red: ['#ffa8a8', '#e03131', 'rgba(224,49,49,.4)'], teal: ['#63e6be', '#0d9488', 'rgba(13,148,136,.45)']};
+  const gkey = f => f >= 1 ? 'good' : f >= .6 ? 'ind' : f >= .3 ? 'amb' : 'red';
+  const pcol = f => ({good: 'var(--grn)', ind: 'var(--ind)', amb: 'var(--amb)', red: 'var(--red)'})[gkey(f)];
+  let gid = 0;
+  const bars = (items, opt) => {   // items: {label, v, col, sub, em}
+    const max = Math.max(1, ...items.filter(x => !x.sub || opt && opt.subScale).map(x => x.v));
+    return '<div class="rows">' + items.map((x, i) => `<div class="row${x.sub ? ' sub' : ''}${x.v ? '' : ' zero'}"><div class="lab" title="${esc(x.label)}">${esc(x.label)}${x.em ? `<em>${esc(x.em)}</em>` : ''}</div>
+      <div class="track"><div class="fill" style="--w:${Math.max(0, Math.min(100, x.v / max * 100)).toFixed(2)}%;--c:${x.col || 'var(--ind)'};--d:${i * 70}ms"></div></div><div class="val">${cu(x.v)}</div></div>`).join('') + '</div>';
+  };
+  // radial gauge: share of plan (or of a total), gradient arc, number in the middle
+  const gauge = (title, a, b, meta, opt) => {
+    opt = opt || {}; const r = 52, C = 2 * Math.PI * r, f = b ? a / b : 0, k = opt.key || gkey(f), g = GR[k], id = 'gg' + (++gid), pct = b ? Math.round(f * 100) : 0;
+    return `<div class="gauge"><div class="gwrap"><svg viewBox="0 0 132 132" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${g[0]}"/><stop offset="1" stop-color="${g[1]}"/></linearGradient></defs>
+      <circle cx="66" cy="66" r="${r}" class="gtrack"/><circle cx="66" cy="66" r="${r}" class="arc" stroke="url(#${id})" stroke-dasharray="${C.toFixed(1)}" transform="rotate(-90 66 66)" style="--C:${C.toFixed(1)};--off:${(C * (1 - Math.min(1, f))).toFixed(1)};--glow:${g[2]};--d:${opt.d || 0}ms"/></svg>
+      <div class="gc"><b>${opt.center != null ? opt.center : cu(pct) + '<small>%</small>'}</b>${opt.under ? `<i>${opt.under}</i>` : ''}</div></div><div class="gt">${esc(title)}</div><div class="gm">${meta}</div></div>`;
+  };
+  const ring = (a, b, colA, colB, center) => `<div class="gauge" style="border:0;background:none;padding:0">${gauge('', a, b, '', {key: 'teal', center}).replace(/^<div class="gauge">/, '').replace(/<div class="gt"><\/div><div class="gm"><\/div><\/div>$/, '')}</div>`;
+  // donut of shares with a 2px gap between segments
+  const donut = (segs, center, under) => {
+    const r = 55, C = 2 * Math.PI * r, tot = segs.reduce((t, x) => t + x.v, 0) || 1, live = segs.filter(x => x.v > 0), gap = live.length > 1 ? 2.5 : 0; let acc = 0;
+    const arcs = live.map((x, i) => { const len = Math.max(.5, x.v / tot * C - gap), rot = acc / tot * 360; acc += x.v;
+      return `<circle cx="75" cy="75" r="${r}" class="dseg" style="stroke:${x.col};--C:${len.toFixed(2)};--d:${i * 110}ms" stroke-dasharray="${len.toFixed(2)} ${C.toFixed(2)}" transform="rotate(${rot.toFixed(2)} 75 75)"><title>${esc(x.label)}: ${nf(x.v)}</title></circle>`; }).join('');
+    return `<div class="dwrap"><svg viewBox="0 0 150 150" aria-hidden="true"><circle cx="75" cy="75" r="${r}" fill="none" stroke="var(--track)" stroke-width="20"/>${arcs}</svg><div class="dc"><b>${center}</b><small>${under || ''}</small></div></div>`;
+  };
+  const stack = segs => { const t = segs.reduce((s, x) => s + x.v, 0) || 1; return `<div class="stack">${segs.filter(x => x.v).map((x, i) => `<div style="--w:${(x.v / t * 100).toFixed(2)}%;--d:${i * 120}ms;background:linear-gradient(90deg,color-mix(in srgb,${x.col} 60%,#fff),${x.col})" title="${esc(x.label)}: ${nf(x.v)}"></div>`).join('')}</div>`; };
+  const legend = (segs, tot) => `<div class="legend">${segs.map(x => `<div class="lg${x.v ? '' : ' zero'}"><i style="background:${x.col}"></i>${esc(x.label)}<b>${cu(x.v)}${x.pct ? `<span class="p">${x.pct}</span>` : tot ? `<span class="p">${tot ? Math.round(x.v / tot * 100) : 0}%</span>` : ''}</b></div>`).join('')}</div>`;
+  // treemap: tile area = share; squarified layout in a box with the given width:height ratio
+  function treemap(items, ar) {
+    const tot = items.reduce((t, x) => t + x.v, 0); if (!tot) return '';
+    const W = ar, out = []; let x0 = 0, y0 = 0, w = W, h = 1, row = [];
+    const nodes = items.map(x => Object.assign({}, x, {a: x.v / tot * W})).sort((a, b) => b.a - a.a);
+    const worst = (r, side) => { const sm = r.reduce((t, n) => t + n.a, 0), mx = Math.max(...r.map(n => n.a)), mn = Math.min(...r.map(n => n.a)); return Math.max(side * side * mx / (sm * sm), sm * sm / (side * side * mn)); };
+    const lay = r => { const sm = r.reduce((t, n) => t + n.a, 0);
+      if (w >= h) { const cw = sm / h; let yy = y0; r.forEach(n => { const nh = n.a / cw; out.push({n, x: x0, y: yy, w: cw, h: nh}); yy += nh; }); x0 += cw; w -= cw; }
+      else { const rh = sm / w; let xx = x0; r.forEach(n => { const nw = n.a / rh; out.push({n, x: xx, y: y0, w: nw, h: rh}); xx += nw; }); y0 += rh; h -= rh; } };
+    let i = 0; while (i < nodes.length) { const side = Math.min(w, h), n = nodes[i]; if (!row.length || worst(row.concat([n]), side) <= worst(row, side)) { row.push(n); i++; } else { lay(row); row = []; } }
+    if (row.length) lay(row);
+    return `<div class="tm" style="aspect-ratio:${W.toFixed(2)}">${out.map((r, k) => { const sh = r.w * r.h / W, cls = sh < .035 ? ' xs' : sh < .09 ? ' sm' : '';
+      return `<div class="tmc${cls}" style="left:${(r.x / W * 100).toFixed(3)}%;top:${(r.y * 100).toFixed(3)}%;width:${(r.w / W * 100).toFixed(3)}%;height:${(r.h * 100).toFixed(3)}%;--c:${r.n.col};--d:${k * 70}ms" title="${esc(r.n.label)} — ${nf(r.n.v)} дана${r.n.em ? ' · ' + esc(r.n.em) : ''}">
+        <div><b>${cu(r.n.v)}</b><span>${esc(r.n.label)}</span>${r.n.em ? `<small>${esc(r.n.em)}</small>` : ''}</div></div>`; }).join('')}</div>`
+      + (() => { const tiny = out.filter(r => r.w * r.h / W < .09); return tiny.length ? `<div class="tmleg">${tiny.map(r => `<span><i style="background:${r.n.col}"></i>${esc(r.n.label)} — <b>${nf(r.n.v)}</b></span>`).join('')}</div>` : ''; })();   // names of tiles too small to hold text
+  }
+  const tmAr = n => (window.innerWidth || 800) < 520 ? (n > 6 ? 1 : 1.3) : (n > 6 ? 2.2 : 2.8);
+  // vertical columns with the value on top and the name below
+  const columns = items => { const max = Math.max(1, ...items.map(x => x.v));
+    return `<div class="cols">${items.map((x, i) => `<div class="colm" title="${esc(x.label)}: ${nf(x.v)}"><b>${cu(x.v)}</b><div class="cbar"><i style="--h:${Math.max(3, x.v / max * 100).toFixed(1)}%;--c:${x.col};--d:${i * 90}ms"></i></div><small>${esc(x.label)}</small></div>`).join('')}</div>`; };
+  // vertical columns against the plan: grey track = plan, coloured part = sold
+  const planCols = items => `<div class="cols pcols">${items.map((x, i) => { const pl = x.p.plan || 0, f = pl ? x.n / pl : 0;
+    return `<div class="colm" title="${esc(x.p.name)}: ${nf(x.n)} / ${nf(pl)}"><b>${cu(x.n)}<span class="of"> / ${nf(pl)}</span></b><div class="cbar"><i style="--h:${Math.max(2, Math.min(1, f) * 100).toFixed(1)}%;--c:${pcol(f)};--d:${i * 90}ms"></i></div><small>${esc(x.p.name.replace(/^Математика\s*—\s*/, 'Мат. · ').replace(/^Ағылшын\s*—\s*/, 'Ағыл. · '))}</small><em style="color:${pcol(f)}">${pc0(x.n, pl)}</em></div>`; }).join('')}</div>`;
+  // funnel: each step narrower by its share of the first one
+  const funnel = steps => { const top = steps[0].v || 1;
+    return `<div class="funnel">${steps.map((x, i) => { const w = Math.max(28, x.v / top * 100);
+      return `<div class="fstep" style="--w:${w.toFixed(1)}%;--c:${x.col};--d:${i * 150}ms"><span class="fl">${esc(x.label)}</span><div class="fwrap"><div class="fbar"><b>${cu(x.v)}</b></div></div>${i ? `<em>${pc1(x.v, top)}</em>` : '<em>100 %</em>'}</div>`; }).join('')}</div>`; };
+  const sec = (n, title, body) => `<section class="sec"><h2><span class="n">${n}</span>${esc(title)}</h2>${body}</section>`;
+  const prog = (title, pct, frac, meta, col) => `<div class="pg"><div class="pg-top"><b>${esc(title)}</b><span class="pct" style="color:${col}">${pct}</span></div><div class="pg-meta">${meta}</div>
+    <div class="pbar"><div style="--w:${Math.min(100, frac * 100).toFixed(1)}%;background:linear-gradient(90deg,color-mix(in srgb,${col} 55%,#fff),${col})"></div></div></div>`;
+  // 14-day vector trend in the hero; click a point to open that day. Drawn at the real width (no stretching), monotone curve (no false dips)
+  function monoPath(P) {
+    const n = P.length, dx = [], m = [], t = []; if (n < 2) return '';
+    for (let i = 0; i < n - 1; i++) { dx[i] = P[i + 1][0] - P[i][0]; m[i] = (P[i + 1][1] - P[i][1]) / dx[i]; }
+    t[0] = m[0]; t[n - 1] = m[n - 2]; for (let i = 1; i < n - 1; i++) t[i] = m[i - 1] * m[i] <= 0 ? 0 : (m[i - 1] + m[i]) / 2;
+    for (let i = 0; i < n - 1; i++) { if (!m[i]) { t[i] = 0; t[i + 1] = 0; continue; } const a = t[i] / m[i], b = t[i + 1] / m[i], q = a * a + b * b; if (q > 9) { const k = 3 / Math.sqrt(q); t[i] = k * a * m[i]; t[i + 1] = k * b * m[i]; } }
+    let d = `M${P[0][0].toFixed(1)},${P[0][1].toFixed(1)}`;
+    for (let i = 0; i < n - 1; i++) { const h = dx[i] / 3; d += ` C${(P[i][0] + h).toFixed(1)},${(P[i][1] + t[i] * h).toFixed(1)} ${(P[i + 1][0] - h).toFixed(1)},${(P[i + 1][1] - t[i + 1] * h).toFixed(1)} ${P[i + 1][0].toFixed(1)},${P[i + 1][1].toFixed(1)}`; }
+    return d;
+  }
+  function spark(cur, boxW) {
+    const C = counts(), N = 14, days = []; for (let i = N - 1; i >= 0; i--) days.push(utcToIso(isoToUTC(cur) - i * 864e5));
+    const pts = days.map((d, i) => ({d, i, v: d < minD ? null : C[d] || 0})).filter(p => p.v != null); if (pts.length < 2) return '';
+    const W = Math.max(240, Math.round((boxW || 300) - 24)), small = W < 420;   // width of the hero box, measured after it is on the page
+    const H0 = 0, H = small ? 128 : 150, L = 4, Rp = 34, T = 22, B = 24;
+    const top = Math.max(1, ...pts.map(p => p.v)), step = Math.pow(10, Math.floor(Math.log10(top))), max = Math.ceil(top / step * 2) / 2 * step;   // round scale: 119 → 150, 998 → 1 000
+    const X = i => L + i * (W - L - Rp) / (N - 1), Y = v => T + (H - T - B) * (1 - v / max), base = H - B;
+    const P = pts.map(p => [X(p.i), Y(p.v)]), dl = monoPath(P), area = dl + ` L${P[P.length - 1][0].toFixed(1)},${base} L${P[0][0].toFixed(1)},${base} Z`;
+    const sel = pts.find(p => p.d === cur) || pts[pts.length - 1], sx = X(sel.i), sy = Y(sel.v);
+    const grid = [0, .5, 1].map(f => { const y = Y(max * f).toFixed(1); return `<line class="sp-grid" x1="${L}" x2="${W - Rp + 6}" y1="${y}" y2="${y}"/><text class="sp-y" x="${W}" y="${(+y + 3.5).toFixed(1)}" text-anchor="end">${nf(max * f)}</text>`; }).join('');
+    const xl = pts.map(p => { const wkd = (new Date(isoToUTC(p.d)).getUTCDay() + 6) % 7 >= 5, show = !small || p.i % 2 === (N - 1) % 2 || p.d === cur;
+      return show ? `<text class="sp-x${p.d === cur ? ' on' : ''}${wkd ? ' we' : ''}" x="${X(p.i).toFixed(1)}" y="${H - 6}" text-anchor="middle">${p.d.slice(8, 10)}</text>` : ''; }).join('');
+    const dots = pts.map(p => `<g class="sp-pt${p.d === cur ? ' on' : ''}"><circle class="sp-hit" cx="${X(p.i).toFixed(1)}" cy="${Y(p.v).toFixed(1)}" r="13" data-go="${p.d}" tabindex="0" role="button" aria-label="${dmy(p.d)}: ${nf(p.v)}"><title>${dmy(p.d)}, ${wd(p.d)} · ${nf(p.v)}</title></circle><circle class="sp-dot${p.d === cur ? ' on' : ''}" cx="${X(p.i).toFixed(1)}" cy="${Y(p.v).toFixed(1)}" r="${p.d === cur ? 5 : 3}"/>
+      <text class="sp-tip" x="${Math.min(W - Rp - 8, Math.max(14, X(p.i))).toFixed(1)}" y="${Math.max(12, Y(p.v) - 12).toFixed(1)}" text-anchor="middle">${nf(p.v)}</text></g>`).join('');
+    const unit = kind === 'leads' ? 'жаңа лид' : 'сатылым', avg = pts.reduce((t, p) => t + p.v, 0) / pts.length;
+    return `<div class="spark"><div class="spark-h"><span>Соңғы 14 күн · ${unit} · орташа ${nf(avg)}</span><span>${dmy(sel.d).slice(0, 5)}: <b>${nf(sel.v)}</b></span></div>
+      <svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Соңғы 14 күн, ${unit}"><defs><linearGradient id="spStroke" x1="0" x2="1"><stop offset="0" stop-color="#748ffc"/><stop offset="1" stop-color="#96f2d7"/></linearGradient>
+      <linearGradient id="spFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#748ffc" stop-opacity=".42"/><stop offset="1" stop-color="#748ffc" stop-opacity="0"/></linearGradient></defs>
+      ${grid}<line class="sp-sel" x1="${sx.toFixed(1)}" x2="${sx.toFixed(1)}" y1="${T - 6}" y2="${base}"/><path class="sp-area" d="${area}"/><path class="sp-line" d="${dl}" pathLength="1"/>
+      <circle class="sp-pulse" cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="5"/>${dots}${xl}</svg></div>`;
+  }
+  const LOGO = `<svg viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lgG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#748ffc"/><stop offset="1" stop-color="#7048e8"/></linearGradient></defs><rect width="32" height="32" rx="10" fill="url(#lgG)"/><path d="M8 21l5-6 4 3 6-8" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="23" cy="10" r="2.2" fill="#96f2d7"/></svg>`;
+  // reveal sections on scroll; numbers count up as their section appears
+  function animateIn(go) {
+    const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, secs = [...document.querySelectorAll('.sec')];
+    const count = root => { if (reduce) return; root.querySelectorAll('.cu').forEach(el => { const to = +el.dataset.n; if (!to || el.dataset.done) return; el.dataset.done = 1; const t0 = performance.now(), dur = 1200;
+      const step = t => { const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = nf(to * e); if (k < 1) requestAnimationFrame(step); }; el.textContent = '0'; requestAnimationFrame(step); setTimeout(() => { el.textContent = nf(to); }, dur + 400); }); };   // final value even if the tab is in the background (no animation frames)
+    const show = el => { el.classList.add('in'); count(el); };
+    count(document.querySelector('.hero'));
+    if (reduce || !('IntersectionObserver' in window)) secs.forEach(show);
+    else { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { show(e.target); io.unobserve(e.target); } }), {threshold: .12}); secs.forEach(x => io.observe(x)); setTimeout(() => secs.forEach(x => x.classList.contains('in') || show(x)), 4000); }
+    document.querySelectorAll('[data-go]').forEach(el => { const f = () => { if (el.dataset.go !== day) go(el.dataset.go); }; el.onclick = f; el.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); f(); } }; });
+  }
+
+  function render() {
+    const T = kind === 'leads' ? 'Лидтер бойынша күнделікті есеп' : 'Сатылым · күнделікті есеп';
+    let tiles = '', body = '', text = '', textFull = '';
+    if (kind === 'leads') {
+      const R = leads(day), lnk = cfg.url ? cfg.url + '?card=leads&d=' + day : canSwitch() ? location.origin + otherHref('leads', day) : ''; text = leadsText(day, R, lnk, true); textFull = leadsText(day, R, lnk);
+      tiles = `<div class="tile"><small>Кіріс өтінімдер</small><b>${cu(R.newIn)}</b><i>CRM-да барлығы ${nf(R.newL)} сделка</i></div><div class="tile" style="--d:80ms"><small>Рассылкадан «ОП»-ға</small><b>${R.mail ? pc1(R.mailOp, R.mail).replace(' %', '') + '<small>%</small>' : '—'}</b><i>${nf(R.mailOp)} / ${nf(R.mail)}</i></div><div class="tile" style="--d:160ms"><small>Сәтті жабылған</small><b>${cu(R.won)}</b><i>${R.fill ? nf(R.fill.sum) + ' ₸' : 'сәтсіз ' + nf(R.lost)}</i></div>`;
+      const org = R.g('WhatsApp') + R.g('Instagram');
+      const srcRows = [{label: 'Рассылка', v: R.g('Рассылка'), col: SRC_COL['Рассылка']}, {label: 'Instagram / Facebook таргеті', v: R.g('Таргет'), col: SRC_COL['Таргет']},
+        {label: 'Органика', v: org, col: 'var(--teal)', subs: [{label: 'WhatsApp', v: R.g('WhatsApp'), col: SRC_COL['WhatsApp'], sub: 1}, {label: 'Instagram', v: R.g('Instagram'), col: SRC_COL['Instagram'], sub: 1}].filter(x => x.v)},
+        {label: 'Ұсыным арқылы', v: R.g('Сарафан'), col: SRC_COL['Сарафан']}, {label: 'Өздігінен хабарласқан', v: R.g('Самост. обращение'), col: SRC_COL['Самост. обращение']},
+        {label: 'Дереккөзі көрсетілмеген', v: R.g('Не указан'), col: SRC_COL['Не указан']}].concat(Object.keys(R.src).filter(k => !SRC_TXT[k]).map(k => ({label: k, v: R.src[k], col: 'var(--sl)'})))
+        .filter(x => x.v).sort((a, b) => b.v - a.v).flatMap(x => [x].concat(x.subs || [])).map(x => Object.assign({}, x, {em: x.sub ? '' : R.newL ? pc0(x.v, R.newL) : ''}));
+      const srcSeg = Object.entries(R.src).filter(e => e[1]).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({label: (SRC_TXT[k] || [, k])[1], v, col: SRC_COL[k] || 'var(--sl)'}));
+      body += sec(1, 'Жаңа лидтер қайдан келді?', srcSeg.length ? `<div class="big"><b>${cu(R.newL)}</b><span>жаңа лид</span></div>` + treemap(srcSeg.map(x => Object.assign({}, x, {col: ({'var(--ind)': '#4263eb', 'var(--amb)': '#f08c00', 'var(--teal)': '#0ca678', 'var(--vio)': '#7048e8', 'var(--sl)': '#868e96'})[x.col] || x.col, em: pc0(x.v, R.newL)})), tmAr(srcSeg.length)) : '<div class="empty">Бұл күні жаңа лид жоқ</div>');
+      const segM = [{label: 'Жауап беріп, «ОП»-ға ауысқан', v: R.mailOp, col: 'var(--teal)', pct: pc1(R.mailOp, R.mail)}, {label: '«Рассылка» воронкасында қалған', v: R.mail - R.mailOp, col: '#c5d0e6'}];
+      body += sec(2, 'Жаңа рассылка лидтері', !R.mail ? `<div class="big"><b>0</b><span>лид рассылкадан келді</span></div><div class="empty">Бұл күні рассылкадан жаңа лид түспеді — «ОП»-ға ауысу үлесі есептелмейді.</div>` : funnel([{label: 'Рассылкадан келді', v: R.mail, col: '#4263eb'}, {label: 'Жауап беріп, «ОП»-ға өтті', v: R.mailOp, col: '#0ca678'}])
+        + `<div class="minis"><div class="mini"><i>⏳</i><div><b>${cu(R.mail - R.mailOp)}</b><small>әлі «Рассылка» воронкасында (жауап жоқ)</small></div></div></div>
+        <p class="note">«ОП»-ға ауысқандар — сделканың қазіргі воронкасы бойынша (деректер ${snapTxt} жаңартылған).</p>`);
+      const lostItems = nzSrc(R.lostSrc).map(k => ({label: (SRC_TXT[k] || [, k])[1], v: R.lostSrc[k], col: SRC_COL[k] || 'var(--sl)'}));
+      const mlItems = nzSrc(R.mailLostSrc).map(k => ({label: k === 'Не указан' ? 'Дереккөзі көрсетілмеген' : 'Дереккөзі «' + k + '»', v: R.mailLostSrc[k], col: SRC_COL[k] || 'var(--sl)', sub: 1}));
+      const wl = [{label: 'Сәтті жабылған', v: R.won, col: 'var(--grn)'}, {label: 'Сәтсіз жабылған', v: R.lost, col: 'var(--red)'}];
+      body += sec(3, 'Күн ішінде жабылған лидтер', `<div class="donut">${donut(wl, cu(R.won + R.lost), 'жабылды')}<div>${legend(wl, R.won + R.lost)}${R.wonS ? `<div class="kpi good" style="margin-top:12px"><small>Сәтті сделкалар сомасы</small><b>${cu(R.wonS)} <span style="font-size:15px;color:var(--ink3)">₸</span></b></div>` : ''}</div></div>`
+        + (lostItems.length ? `<div class="subh">Сәтсіз жабылғандар — қай дереккөзден</div>${columns(lostItems.sort((a, b) => b.v - a.v))}` : '')
+        + (R.mailLost ? `<p class="note">Оның ішінде рассылка воронкаларында — ${nf(R.mailLost)}.</p>` : ''));
+      const W = waiting(day);
+      if (W) {
+        const byN = o => Object.entries(o).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({n: k, v: nf(v)})), sumB = b => b.reduce((x, y) => x + y, 0);
+        const seg = (b, nm, e) => b.map((v, i) => v ? `<i style="flex:${v} 0 0;background:${DBC[i]}"${ct({h: manShort(nm) + ' · ' + DBK[i], big: nf(v) + ' лид', c: DBC[i], rows: byN(e.bs[i]), note: Math.round(v / (e.n || 1) * 100) + '% — оның барлық күтіп тұрғандарынан'})}></i>` : '').join('');
+        const manTip = (nm, e) => ct({h: manShort(nm), big: nf(e.n) + ' лид күтіп тұр', rows: DBK.map((k, i) => ({n: k, v: nf(e.b[i]), c: DBC[i]})).filter((x, i) => e.b[i]).concat(byN(e.st)), note: e.stuck ? 'ОП-да 3+ күн қозғалыссыз: ' + nf(e.stuck) + (Object.keys(e.stuckSt).length ? ' (' + Object.entries(e.stuckSt).map(([k, v]) => k + ' ' + nf(v)).join(', ') + ')' : '') : (e.n ? 'ең ұзағы ' + dTxt(e.max) : '')});
+        const stTip = k => ct({h: k, big: nf(W.st[k]) + ' лид', rows: Object.entries(W.stm[k] || {}).sort((a, b) => sumB(b[1]) - sumB(a[1])).map(([nm, b]) => ({n: manShort(nm), v: nf(sumB(b)) + (b[2] + b[3] ? ' · 3+ күн ' + nf(b[2] + b[3]) : '')})), note: 'менеджерлер бойынша'});
+        const mx = Math.max(1, ...W.list.map(([, e]) => e.n));
+        const pastNote = day >= snapIso ? '' : W.past ? `<div class="snapnote ok">📸 ${dmy(day)} күнгі срез · ${W.at} жағдайы</div>` : W.loading ? `<div class="snapnote">⏳ ${dmy(day)} күнгі срез жүктелуде…</div>` : `<div class="snapnote">⏱ ${dmy(day)} күнгі срез жоқ — ${snapTxt} жағдайы (қазіргі күй). Срездер «Срездер» парағына күн сайын жазылады.</div>`;   /* иесі 15.10 */   /* иесі 15.10: «статичная» — түсіндіру */
+        body += sec(4, 'Жауап күтіп тұрған лидтер', pastNote + (!W.n && !W.stuck ? `<div class="fillhead ok"><b>✓</b><span>Жауапсыз лид жоқ</span></div>` :
+          `<div class="big"><b>${cu(W.n)}</b><span>лид жауап күтіп тұр · ${W.at} жағдайы</span></div>`
+          + `<div class="wlegend">${DBK.map((k, i) => `<span${W.b[i] ? ct({h: k, big: nf(W.b[i]) + ' лид', c: DBC[i], rows: byN(W.bst[i])}) : ''}><i style="background:${DBC[i]}"></i>${esc(k)} <b>${nf(W.b[i])}</b></span>`).join('')}</div>`
+          + `<div class="wrows">${W.list.map(([nm, e]) => `<div class="wrow"><div class="wname"${manTip(nm, e)}><b>${esc(manShort(nm))}</b><small>${e.n ? 'ең ұзағы ' + esc(dTxt(e.max)) : ''}${e.stuck ? (e.n ? ' · ' : '') + 'ОП-да 3+ күн қозғалыссыз: ' + nf(e.stuck) : ''}</small></div>`
+            + `<div class="wtrack"><div class="wbar" style="width:${(e.n / mx * 100).toFixed(1)}%">${seg(e.b, nm, e)}</div></div><b class="wn">${nf(e.n)}</b></div>`).join('')}</div>`
+          + `<div class="minis">${Object.entries(W.st).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<div class="mini"${stTip(k)}><i>📥</i><div><b>${cu(v)}</b><small>${esc(k)}</small></div></div>`).join('')}</div>`
+          + `<div class="howto">🔎 <b>Қалай табу:</b> amoCRM → Сделки → этап «НОВАЯ ЗАЯВКА» (рассылкада — «Жауап берді») + «Ответственный: өзіңіз» → «Изменена» бойынша сұрыптаңыз, ең ескісінен бастаңыз.</div>`
+          + `<p class="note">Күн — amoCRM-дағы соңғы өзгерістен бері («Изменена»). Бұл — қазіргі жағдай, таңдалған күнге байланысты емес.</p>`));
+      }
+      const sItems = nzSrc(R.sNewSrc).map(k => ({label: (SRC_TXT[k] || [, k])[1], v: R.sNewSrc[k], col: SRC_COL[k] || 'var(--sl)'}));
+      body += sec(W ? 5 : 4, 'Техникалық қолдау', `<div class="minis"><div class="mini"><i>📥</i><div><b>${cu(R.newS)}</b><small>ашылған өтініш</small></div></div><div class="mini"><i>✅</i><div><b>${cu(R.sWon)}</b><small>сәтті жабылған</small></div></div><div class="mini"><i>❌</i><div><b>${cu(R.sLost)}</b><small>сәтсіз жабылған</small></div></div></div>`);
+      if (R.fill) { const F = R.fill, gap = R.sheet ? R.sheet[0] - F.won : null, miss = F.noB + F.noP + F.noSrc + F.noR, d5 = dmy(day).slice(0, 5);
+        // one fixed layout per manager: the 4 fields a closed deal must have — ✓ filled, «3 / 5» empty in 3 of 5 deals, «—» no such deals that day
+        const FIELDS = [['💰', 'Сома («Бюджет»)', 'noB', 'won', 'сәтті сделкада бос', 'сәтті сделка жоқ'], ['📦', 'Өнім («Продукт»)', 'noP', 'won', 'сәтті сделкада бос', 'сәтті сделка жоқ'],
+          ['📍', '«Қайдан келді»', 'noSrc', 'won', 'сәтті сделкада бос', 'сәтті сделка жоқ'], ['❓', 'Бас тарту себебі', 'noR', 'lost', 'бас тартуда бос', 'бас тарту жоқ']];
+        const cell = (e, [ic, lb, k, base, badTxt, naTxt]) => !e[base] ? `<div class="fcell na"><small>${ic} ${esc(lb)}</small><b>—</b><em>${naTxt}</em></div>`
+          : e[k] ? `<div class="fcell bad"><small>${ic} ${esc(lb)}</small><b>${nf(e[k])} / ${nf(e[base])}</b><em>${badTxt}</em></div>` : `<div class="fcell ok"><small>${ic} ${esc(lb)}</small><b>✓</b><em>толық</em></div>`;
+        const gaps = e => e.noB + e.noP + e.noSrc + e.noR;
+        const men = Object.entries(F.man).filter(([, e]) => e.won || e.lost).sort((a, b) => gaps(b[1]) - gaps(a[1]) || (b[1].won + b[1].lost) - (a[1].won + a[1].lost));
+        body += sec(W ? 6 : 5, 'ОП: CRM-да толтыру керек', `<p class="fintro">Сделка жабылғанда толтырылуы керек: <b>сәтті</b> сделкада — сома, өнім, «Қайдан келді»; <b>бас тартқанда</b> — себебі. Төменде — ${d5} жабылған сделкалар.</p>`
+          + (men.length ? `<div class="fgrid">${men.map(([nm, e]) => `<div class="fcard${gaps(e) ? '' : ' done'}"><div class="fcard-h"><b>👤 ${esc(manShort(nm))}</b><small>${nf(e.won)} сәтті · ${nf(e.lost)} бас тарту</small>${gaps(e) ? '' : '<span class="fok">✓ бәрі толық</span>'}</div>
+            <div class="fcells">${FIELDS.map(f => cell(e, f)).join('')}</div></div>`).join('')}</div>`
+            + (miss ? `<div class="howto">🔎 <b>Қалай табу:</b> amoCRM → Сделки → фильтр «Закрыта: ${d5}» + «Ответственный: өзіңіз» → өрісі бос сделканы ашып, толтырыңыз.</div>` : '')
+            : `<div class="empty">${d5} ОП-да жабылған сделка жоқ.</div>`)
+          + (gap > 0 ? `<div class="fpay"><div class="fpay-g"><div class="fsrc"><small><i style="background:#7048e8"></i>«ОП миникурс» кестесі</small><b>${nf(R.sheet[0])}</b><span>төлем · ${nf(R.sheet[1])} ₸</span></div>`
+            + `<div class="fsrc"><small><i style="background:#2b8a3e"></i>amoCRM деректері</small><b>${nf(F.won)}</b><span>«Успешно» сделка · ${nf(F.sum)} ₸</span></div></div>`
+            + `<div class="fpay-w"><span>⚠️</span><p><b>${nf(gap)} төлем</b> CRM-да әлі жабылмаған — ОП ${d5} төлегендердің сделкасын тауып, «Успешно» деп жабуы керек.</p></div></div>` : '')); }
+    } else {
+      const R = sales(day), M = R.main, lnk = cfg.url ? cfg.url + '?card=sales&d=' + day : canSwitch() ? location.origin + otherHref('sales', day) : ''; text = salesText(day, R, lnk, true); textFull = salesText(day, R, lnk);
+      const COLS = ['#4263eb', '#7048e8', '#0ca678', '#f08c00', '#1098ad', '#ae3ec9', '#e8590c', '#5c7cfa'];
+      const gapW = platGap(day, R);
+      tiles = `<div class="tile"><small>Тіркелген төлемдер</small><b class="m">${cu(R.sum)}&nbsp;<small>₸</small></b><i>${nf(R.rows)} дана${gapW ? ` · ⚠️ платформа ${nf(gapW.n)} (әдетте ~${nf(gapW.med)}) — толық емес болуы мүмкін` : ''}</i></div>` + R.secsVis.filter(s => s.planN).slice(0, 2).map((s, i) => `<div class="tile" style="--d:${(i + 1) * 80}ms"><small>${esc(s.name)}</small><b>${cu(Math.round(s.n / s.planN * 100))}<small>%</small></b><i>${nf(s.n)} / ${nf(s.planN)} дана</i></div>`).join('');
+      const planned = R.secsVis.filter(s => s.planN), free = R.secsVis.filter(s => !s.planN);
+      body += sec('🎯', 'Орындалуы', `<div class="gauges">${planned.map((s, i) => gauge(s.name, s.n, s.planN, `${nf(s.n)} / ${nf(s.planN)} дана · ${nf(s.s)} ₸`, {d: i * 150, under: 'жоспардан'})).join('')}</div>`
+        + (free.length ? `<div class="minis">${free.map(s => `<div class="mini"><i>${secEmo(s)}</i><div><b>${cu(s.n)} <span style="font-size:13px;color:var(--ink3);font-weight:700">дана</span></b><small>${esc(s.name)} · ${nf(s.s)} ₸</small></div></div>`).join('')}</div>` : ''));
+      body += sec(1, 'Сатылым — жоспар / факт', R.secsVis.map((s, si) => {
+        const ac = /негізгі/i.test(s.name) ? '#3b5bdb' : /пробный/i.test(s.name) ? '#0d9488' : /түлек/i.test(s.name) ? '#7048e8' : /алтын/i.test(s.name) ? '#e8590c' : s.name === OTHER ? '#64748b' : '#1098ad', f = s.planN ? s.n / s.planN : null;
+        const head = `<div class="grp-h"><i>${secEmo(s)}</i><div class="grp-t"><b>${esc(s.name)}</b><small>${s.planN ? `${nf(s.n)} / ${nf(s.planN)} дана` : `${nf(s.n)} дана`} · ${nf(s.s)} ₸</small></div>${f != null ? `<span class="grp-p" style="color:${pcol(f)}">${Math.round(f * 100)}%</span>` : ''}</div>`
+          + (f != null ? `<div class="pbar grp-bar"><div style="--w:${Math.min(100, f * 100).toFixed(1)}%;background:linear-gradient(90deg,color-mix(in srgb,${ac} 55%,#fff),${ac})"></div></div>` : '');
+        const open = `<div class="grp" style="--gc:${ac};--i:${si}">`;
+        if (s.itemPlans) return open + head + planCols(s.vis) + '</div>';
+        if (false) return open + head + `<table class="tbl"><thead><tr><th>Өнім</th><th>Жоспар</th><th>Факт</th><th>%</th></tr></thead><tbody>${s.vis.map(x => { const pl = x.p.plan || 0, f = pl ? x.n / pl : 0;
+          const sub = Object.entries(x.raw || {}).filter(([, r]) => r.n).sort((a, b) => b[1].n - a[1].n).filter(e => lc(e[0]) !== lc(x.p.name)).slice(0, 4);
+          return `<tr><td>${esc(x.p.name)}<small>${esc(priceTxt(x))}</small>${sub.map(([nm, r]) => `<small class="rawp">◦ ${esc(nm)} — ${nf(r.n)}</small>`).join('')}</td><td>${nf(pl)}<small>${nf(pl * (x.p.price || x.p.pprice || 0))} ₸</small></td><td>${nf(x.n)}<small>${nf(x.s)} ₸</small></td><td><span class="chip" style="background:color-mix(in srgb,${pcol(f)} 14%,transparent);color:${pcol(f)}">${pc0(x.n, pl)}</span></td></tr>`; }).join('')}</tbody></table></div>`;
+        // treemap of what was sold: a «basket» line is opened into its real products
+        const tiles = s.vis.filter(x => x.n).flatMap((x, i) => { const col = s.name === OTHER ? '#64748b' : COLS[i % COLS.length], subs = subsOf(x, s);
+          return subs.length ? subs.map(([nm, r]) => ({label: nm, v: r.n, em: nf(r.s) + ' ₸', col})) : [{label: itemLbl(s, x), v: x.n, em: nf(x.s) + ' ₸' + (priceTxt(x) && !/,/.test(priceTxt(x)) ? ' · ' + priceTxt(x) : ''), col}]; });
+        const none = s.vis.filter(x => !x.n);
+        const cards = t => `<div class="pcards">${t.map(x => `<div class="pcard" style="--c:${x.col}"><b>${cu(x.v)}</b><span>${esc(x.label)}</span><small>${esc(x.em || '')}</small></div>`).join('')}</div>`;
+        return open + head + (!tiles.length ? '<div class="empty">Сатылым болмады</div>' : tiles.length < 3 ? cards(tiles) : treemap(tiles, tmAr(tiles.length)))
+          + (none.length ? `<div class="zero-chips">Сатылмады: ${none.map(x => `<span>${esc(itemLbl(s, x))}</span>`).join('')}</div>` : '') + '</div>';
+      }).join('') + `<div class="note">Тіркелген төлемдер: <b>${nf(R.rows)} жазба — ${nf(R.sum)} ₸</b> (CRM «Успешно», бюджет: ${nf(R.by.s.n)} · ${nf(R.by.s.s)} ₸; платформа: ${nf(R.by.p.n)} · ${nf(R.by.p.s)} ₸).${R.refPrice ? ' Соманың орнына прайс бағасы алынған жазбалар: ' + nf(R.refPrice) + '.' : ''}${Object.keys(R.skipped).length ? ' Есепке кірмеген платформа жазбалары: ' + Object.entries(R.skipped).map(([k, v]) => esc(k) + ' — ' + v + ' (' + nf(R.skippedS[k] || 0) + ' ₸)').join(', ') + '.' : ''}${R.skipped['invoice жоқ'] === R.by.s.n && Math.round(R.skippedS['invoice жоқ'] || 0) === Math.round(R.by.s.s) && R.by.s.n ? ' «Invoice жоқ» жазбалардың саны мен сомасы ОП кестесі-мен бірдей — бұл сол төлемдердің платформадағы көшірмесі болуы мүмкін, сондықтан қосылмайды.' : ''}</div>`);
+      if (M) { const fm = M.planN ? M.n / M.planN : 0;
+        body += sec(2, 'Жалпы нәтиже · ' + M.name.toLowerCase(), `<div class="duo"><div class="kpi"><small>Дана · жоспар / факт</small><b>${nf(M.n)} <span style="color:var(--ink3);font-size:16px">/ ${nf(M.planN)}</span></b></div>
+        <div class="kpi"><small>Сома · жоспар / факт</small><b>${nf(M.s)} <span style="color:var(--ink3);font-size:16px">/ ${nf(M.planS)} ₸</span></b></div></div>${prog('Орындалуы', pc0(M.n, M.planN), fm, 'дана бойынша', pcol(fm))}`); }
+      const srcItems = []; R.srcOrder.forEach(l => { srcItems.push({label: l, v: R.src[l] || 0, col: /платформа/i.test(l) ? 'var(--vio)' : /таргет/i.test(l) ? 'var(--amb)' : /органика/i.test(l) ? 'var(--teal)' : /рассылка/i.test(l) ? 'var(--ind)' : 'var(--sl)'});
+        if (l === R.platLine) srcItems.push({label: '1 000 ₸ және одан арзан', em: nf(R.plat.loS) + ' ₸', v: R.plat.lo, col: 'var(--vio)', sub: 1}, {label: '1 000 ₸-ден қымбат', em: nf(R.plat.hiS) + ' ₸', v: R.plat.hi, col: 'var(--vio)', sub: 1}); });
+      const mainSrc = srcItems.filter(x => !x.sub);
+      body += sec(3, 'Клиенттер қайдан келді?', `<div class="big"><b>${cu(R.rows)}</b><span>сатылым</span></div>` + columns(mainSrc.filter(x => x.v).sort((a, b) => b.v - a.v).map(x => Object.assign({}, x, {label: x.label + ' · ' + pc0(x.v, R.rows)})))
+        + (canSwitch() ? `<a class="xlink" href="${otherHref('leads', day)}" target="_top">Осы күнгі лидтер мен CRM толтыру есебі →</a>` : '')
+        + `<div class="minis"><div class="mini"><i>📱</i><div><b>${cu(R.plat.lo)}</b><small>платформа · 1 000 ₸ және арзан · ${nf(R.plat.loS)} ₸</small></div></div><div class="mini"><i>💎</i><div><b>${cu(R.plat.hi)}</b><small>платформа · 1 000 ₸-ден қымбат · ${nf(R.plat.hiS)} ₸</small></div></div></div>`);
+      if (!fromCatalog) body += `<p class="note">Өнімдер әзірге «Жоспар» парағы бойынша — таблицада «Өнімдер» парағы әлі жоқ.</p>`;
+      if ((D.errors || []).length) body += `<p class="note">⚠ ${esc(D.errors.join('; '))}</p>`;
+      if (D.stale) body += `<p class="note">⚠ Платформа соңғы рет ${esc(String(D.stale.attemptAt || '').replace('T', ' '))} оқылмады — сатылым ${esc(String(D.stale.lastGoodAt || '').replace('T', ' '))} күйі бойынша көрсетілген.</p>`;
+    }
+    const prev = utcToIso(isoToUTC(day) - 864e5), next = utcToIso(isoToUTC(day) + 864e5);
+    $('app').innerHTML = `<div class="wrap"><header class="hero"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><div class="gridbg"></div><div class="toprow"><div class="brand">${LOGO}EduApp</div>${canSwitch() ? `<nav class="switch" aria-label="Есептер"><a href="${otherHref('leads', day)}" target="_top"${kind === 'leads' ? ' class="on" aria-current="page"' : ''}>📥 Лидтер</a><a href="${otherHref('sales', day)}" target="_top"${kind === 'sales' ? ' class="on" aria-current="page"' : ''}>💰 Сатылым</a></nav>` : ''}</div><h1>${T}</h1>
+      <div class="daterow"><button id="prev" ${prev < minD ? 'disabled' : ''} aria-label="Алдыңғы күн">‹</button><label id="dt-btn" role="button" tabindex="0" aria-haspopup="dialog">📅 ${dmy(day)}, ${wd(day)} <span style="opacity:.6;font-size:11px">▾</span></label><button id="next" ${next > maxD ? 'disabled' : ''} aria-label="Келесі күн">›</button></div>
+      <div class="tiles">${tiles}</div><div class="spark" id="spark"></div></header>${body}
+      <div class="acts"><button class="btn pri" id="cp-link">🔗 Сілтемені көшіру</button><button class="btn pdf" id="cp-pdf">📄 PDF жүктеу</button><button class="btn" id="cp-text">💬 WhatsApp мәтінін көшіру</button><button class="btn" id="cp-full" title="Менеджерлер, техқолдау, ескертпе — бәрі">📋 Толық мәтін</button></div><div id="cp-box"></div>
+      <div class="foot">${kind === 'leads' ? 'Дереккөз: amoCRM → Google Sheets' : 'Дереккөз: amoCRM «Успешно» (бюджет), платформа, «Өнімдер» парағы'} · жаңартылды ${snapTxt}<br>Тек жиынтық сандар — аты-жөні, телефон, чек жоқ.</div></div><div class="toast" id="toast"></div>`;
+    const go = d => { day = d; render(); try { google.script.history.replace(null, {card: kind, d: day}); } catch (e) { try { history.replaceState(null, '', location.pathname + qs(day)); } catch (e2) { /* local file */ } } };
+    $('prev').onclick = () => go(prev); $('next').onclick = () => go(next);
+    $('dt-btn').onclick = () => openCal($('dt-btn'), go);
+    $('dt-btn').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCal($('dt-btn'), go); } };
+    const link = cfg.url ? cfg.url + '?card=' + kind + '&d=' + day : location.href.split(/[?#]/)[0] + qs(day);
+    $('cp-link').onclick = () => copy(link, 'Сілтеме көшірілді');
+    $('cp-text').onclick = () => copy(text, 'Қысқа мәтін көшірілді — WhatsApp-қа қойыңыз');
+    $('cp-full').onclick = () => copy(textFull || text, 'Толық мәтін көшірілді');
+    $('cp-pdf').onclick = () => pdfDialog();
+    // bottom bar: hides while scrolling down, comes back on scroll up and at the end of the page
+    if (!render.sc) { render.sc = 1; let y0 = scrollY;
+      addEventListener('scroll', () => { const bar = document.querySelector('.acts'); if (!bar) return;
+        const y = scrollY, end = innerHeight + y >= document.documentElement.scrollHeight - 40;
+        if (end || y < 60 || y < y0 - 4) bar.classList.remove('hid'); else if (y > y0 + 4) bar.classList.add('hid');
+        y0 = y; }, {passive: true}); }
+    const sp = $('spark'), spw = sp.parentElement.clientWidth - (innerWidth <= 480 ? 28 : 40); sp.outerHTML = spark(day, spw) || '';
+    animateIn(go);
+    if (!render.rs) { render.rs = 1; let w0 = innerWidth, tm; addEventListener('resize', () => { clearTimeout(tm); tm = setTimeout(() => { if (Math.abs(innerWidth - w0) < 30) return; w0 = innerWidth; const el = document.querySelector('.spark'); if (el) { el.outerHTML = spark(day, el.parentElement.clientWidth - (innerWidth <= 480 ? 28 : 40)); animateIn(go); } }, 200); }); }
+  }
+  function otherHref(k, d) {
+    if (cfg.url) return cfg.url + '?card=' + k + '&d=' + d;
+    const path = location.pathname;
+    if (/\/(leads|sales)\/?$/i.test(path)) return path.replace(/(leads|sales)(\/?)$/i, k + '$2') + '?d=' + d;
+    return path + '?card=' + k + '&d=' + d;
+  }
+  const canSwitch = () => !!cfg.url || /(\/(leads|sales)\/?|card\.html)$/i.test(location.pathname);   // a saved one-day file has only its own data
+  // colour PDF: blocks are drawn as images exactly as on screen and laid out on A4 pages; a dialog chooses what to save
+  const loadJs = src => new Promise((res, rej) => { if (document.querySelector('script[src="' + src + '"]')) return res(); const el = document.createElement('script'); el.src = src; el.onload = res; el.onerror = () => rej(new Error('кітапхана жүктелмеді')); document.head.appendChild(el); });
+  const H2I = 'https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js', JSPDF = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const blockEls = () => [document.querySelector('.hero'), ...document.querySelectorAll('.sec')];
+  const blockName = (el, i) => i === 0 ? 'Басты көрсеткіштер және 14 күн графигі' : [...(el.querySelector('h2') || {childNodes: []}).childNodes].filter(n => !(n.classList && n.classList.contains('n'))).map(n => n.textContent).join('').trim();
+  // images of the selected blocks of THIS page (also called from the other report opened in a hidden frame)
+  window.__zopBlocks = async sel => {
+    await loadJs(H2I);
+    document.body.classList.add('pdfmode'); document.querySelectorAll('.sec').forEach(x => x.classList.add('in'));
+    document.querySelectorAll('.cu').forEach(el => { el.dataset.done = 1; el.textContent = nf(+el.dataset.n); });
+    await sleep(250);
+    try { const out = [], els = blockEls();
+      for (let i = 0; i < els.length; i++) { if (sel && sel.indexOf(i) < 0) continue; const el = els[i], bw = el.offsetWidth, bh = el.offsetHeight;
+        const c = await htmlToImage.toCanvas(el, {width: bw, height: bh, pixelRatio: 2, skipFonts: true, backgroundColor: '#eef2fb', cacheBust: true});
+        if (!bw || c.width < bw * 1.5) throw new Error('бетті алдыңғы терезеде ашып, қайта басыңыз');   // a hidden tab can measure blocks wrongly — never build a broken PDF
+        out.push(c); }
+      return out;
+    } finally { document.body.classList.remove('pdfmode'); }
+  };
+  // the other report for the same day, opened invisibly on this site
+  async function otherBlocks(k) {
+    const f = document.createElement('iframe'); f.setAttribute('aria-hidden', 'true'); f.style.cssText = 'position:fixed;left:-12000px;top:0;width:' + Math.max(760, document.querySelector('.wrap').offsetWidth) + 'px;height:1600px;border:0';
+    f.src = otherHref(k, day); document.body.appendChild(f);
+    try { let w; for (let i = 0; i < 160; i++) { await sleep(250); try { w = f.contentWindow; if (w && w.__zopBlocks && w.document.querySelector('.sec')) break; } catch (e) { throw new Error('екінші есеп ашылмады'); } }
+      if (!w || !w.__zopBlocks) throw new Error('екінші есеп жүктелмеді'); await sleep(700); return await w.__zopBlocks(null);
+    } finally { f.remove(); }
+  }
+  function pdfFrom(groups) {   // groups: [{label, canvases}] — each group starts on a new page
+    const {jsPDF} = window.jspdf, pdf = new jsPDF({unit: 'pt', format: 'a4', compress: true}), PW = 595.28, PH = 841.89, M = 22, CW = PW - 2 * M, TOP = M, BOT = PH - M - 16, labels = [];
+    const bg = () => { pdf.setFillColor(238, 242, 251); pdf.rect(0, 0, PW, PH, 'F'); };
+    let y = TOP; bg();
+    groups.forEach((g, gi) => {
+      if (gi) { pdf.addPage(); bg(); y = TOP; }
+      g.canvases.forEach(c => { const k = CW / c.width; let sy = 0;
+        while (sy < c.height) {
+          const room = BOT - y, need = (c.height - sy) * k;
+          if (need > room && y > TOP && (sy === 0 && need <= BOT - TOP || room < 140)) { pdf.addPage(); bg(); y = TOP; continue; }   // a block that fits on one page is not split
+          const part = Math.min(c.height - sy, Math.floor(room / k)), cut = document.createElement('canvas'); cut.width = c.width; cut.height = part;
+          cut.getContext('2d').drawImage(c, 0, sy, c.width, part, 0, 0, c.width, part);
+          pdf.addImage(cut.toDataURL('image/jpeg', .92), 'JPEG', M, y, CW, part * k, undefined, 'FAST');
+          labels[pdf.getNumberOfPages()] = g.label; sy += part; y += part * k + 10;
+          if (sy < c.height) { pdf.addPage(); bg(); y = TOP; }
+        } });
+    });
+    const n = pdf.getNumberOfPages();
+    for (let i = 1; i <= n; i++) { pdf.setPage(i); pdf.setFontSize(8); pdf.setTextColor(138, 150, 173); pdf.text(`EduApp  ·  ${labels[i] || ''}  ·  ${dmy(day)}  ·  ${i} / ${n}`, PW / 2, PH - 12, {align: 'center'}); }
+    return pdf;
+  }
+  const LBL = {leads: 'Leads', sales: 'Sales'}, FN = {leads: 'Lidter', sales: 'Satylym'}, KZ = {leads: 'Лидтер', sales: 'Сатылым'};
+  async function makePdf(opt) {
+    const btn = $('cp-pdf'), old = btn.innerHTML; btn.disabled = true; btn.innerHTML = '⏳ PDF дайындалуда…';
+    try {
+      await loadJs(JSPDF);
+      const other = kind === 'leads' ? 'sales' : 'leads', mine = {label: LBL[kind], canvases: await window.__zopBlocks(opt.sel)};
+      if (opt.mode === 'this') { pdfFrom([mine]).save(`EduApp_${FN[kind]}_${day}.pdf`); }
+      else {
+        btn.innerHTML = `⏳ ${KZ[other]} есебі жүктелуде…`;
+        const theirs = {label: LBL[other], canvases: await otherBlocks(other)}, ordered = kind === 'leads' ? [mine, theirs] : [theirs, mine];
+        if (opt.mode === 'both') pdfFrom(ordered).save(`EduApp_Lidter-Satylym_${day}.pdf`);
+        else { pdfFrom([mine]).save(`EduApp_${FN[kind]}_${day}.pdf`); await sleep(600); pdfFrom([theirs]).save(`EduApp_${FN[other]}_${day}.pdf`); }
+      }
+      toast('PDF жүктелді');
+    } catch (e) { toast('PDF жасалмады: ' + (e && e.message || e)); }
+    finally { btn.disabled = false; btn.innerHTML = old; }
+  }
+  // dialog: which report(s) and which blocks
+  function pdfDialog() {
+    const old = $('pdfdlg'); if (old) old.remove();
+    const els = blockEls(), two = canSwitch() && !cfg.url, other = kind === 'leads' ? 'sales' : 'leads';
+    const box = document.createElement('div'); box.className = 'mdl'; box.id = 'pdfdlg'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-label', 'PDF жүктеу');
+    box.innerHTML = `<div class="mdl-c"><div class="mdl-h"><b>📄 PDF жүктеу</b><span>${dmy(day)}, ${wd(day)}</span></div>
+      <div class="mdl-s">Қандай есеп?</div>
+      <label class="opt"><input type="radio" name="pk" value="this" checked><span><b>Тек осы есеп — ${KZ[kind]}</b><small>бөлімдерін төменде таңдаңыз</small></span></label>
+      ${two ? `<label class="opt"><input type="radio" name="pk" value="both"><span><b>Лидтер + Сатылым — бір PDF</b><small>екі есеп бір файлда, әрқайсысы жаңа беттен</small></span></label>
+      <label class="opt"><input type="radio" name="pk" value="sep"><span><b>Лидтер мен Сатылым — бөлек</b><small>екі PDF файл</small></span></label>` : ''}
+      <div class="mdl-s">${KZ[kind]} есебінен не сақтау керек? <a href="#" id="pdf-all">бәрі</a></div>
+      <div class="chkl">${els.map((el, i) => `<label class="opt sm"><input type="checkbox" value="${i}" checked><span>${esc(blockName(el, i))}</span></label>`).join('')}</div>
+      ${two ? `<p class="mdl-n">${KZ[other]} есебі толық сақталады.</p>` : ''}
+      <div class="mdl-f"><button class="btn" id="pdf-x">Болдырмау</button><button class="btn pri" id="pdf-ok">📄 Жүктеу</button></div></div>`;
+    document.body.appendChild(box); requestAnimationFrame(() => box.classList.add('on'));
+    const close = () => { box.classList.remove('on'); setTimeout(() => box.remove(), 250); };
+    box.onclick = e => { if (e.target === box) close(); };
+    box.querySelector('#pdf-x').onclick = close;
+    box.querySelector('#pdf-all').onclick = e => { e.preventDefault(); box.querySelectorAll('.chkl input').forEach(i => { i.checked = true; }); };
+    box.querySelector('#pdf-ok').onclick = () => { const sel = [...box.querySelectorAll('.chkl input:checked')].map(i => +i.value), mode = (box.querySelector('input[name=pk]:checked') || {}).value || 'this';
+      if (!sel.length) { toast('Кемінде бір бөлім таңдаңыз'); return; } close(); makePdf({mode, sel}); };
+  }
+  function qs(d) { return '?' + (/(leads|sales)\b/i.test(location.pathname) ? '' : 'card=' + kind + '&') + 'd=' + d; }
+  const KK_MON = ['қаңтар', 'ақпан', 'наурыз', 'сәуір', 'мамыр', 'маусым', 'шілде', 'тамыз', 'қыркүйек', 'қазан', 'қараша', 'желтоқсан'];
+  let dayCount = null;
+  function counts() {   // leads created / sales made per day — shown under the dates
+    if (dayCount) return dayCount; dayCount = {};
+    if (kind === 'leads') { const SUP = D.dict.funnel.indexOf('Техподдержка'), b = isoToUTC(D.base); D.main.forEach(r => { if (r[1] === SUP || r[0] < 0) return; const k = utcToIso(b + r[0] * 864e5); dayCount[k] = (dayCount[k] || 0) + r[r.length - 2]; }); }
+    else D.cube.forEach(r => { if (skipReason(r)) return; dayCount[r[1]] = (dayCount[r[1]] || 0) + r[r.length - 2]; });
+    return dayCount;
+  }
+  function openCal(anchor, go) {
+    closeCal(); let ym = day.slice(0, 7);
+    const box = document.createElement('div'); box.className = 'cal'; box.id = 'cal'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-label', 'Күнді таңдау');
+    document.body.appendChild(box);
+    const place = () => { const r = anchor.getBoundingClientRect(), w = box.offsetWidth; box.style.top = Math.min(r.bottom + 8, innerHeight - box.offsetHeight - 10) + 'px'; box.style.left = Math.max(10, Math.min(r.left, innerWidth - w - 10)) + 'px'; };
+    const draw = () => {
+      const y = +ym.slice(0, 4), m = +ym.slice(5, 7), first = Date.UTC(y, m - 1, 1), n = new Date(Date.UTC(y, m, 0)).getUTCDate(), lead = (new Date(first).getUTCDay() + 6) % 7, C = counts();
+      const prevYm = utcToIso(Date.UTC(y, m - 2, 1)).slice(0, 7), nextYm = utcToIso(Date.UTC(y, m, 1)).slice(0, 7);
+      let g = ''; for (let i = 0; i < lead; i++) g += '<span></span>';
+      for (let d = 1; d <= n; d++) { const iso = `${ym}-${pad(d)}`, off = iso < minD || iso > maxD, wdI = (lead + d - 1) % 7, c = C[iso];
+        g += `<button data-d="${iso}" class="${iso === day ? 'on' : ''}${iso === maxD ? ' now' : ''}${wdI >= 5 ? ' we' : ''}" ${off ? 'disabled' : ''} aria-label="${dmy(iso)}">${d}<small>${c ? nf(c) : '·'}</small></button>`; }
+      box.innerHTML = `<div class="cal-h"><button data-m="${prevYm}" ${prevYm < minD.slice(0, 7) ? 'disabled' : ''} aria-label="Алдыңғы ай">‹</button><b>${KK_MON[m - 1].charAt(0).toUpperCase() + KK_MON[m - 1].slice(1)} ${y}</b><button data-m="${nextYm}" ${nextYm > maxD.slice(0, 7) ? 'disabled' : ''} aria-label="Келесі ай">›</button></div>
+        <div class="cal-w">${['Дс', 'Сс', 'Ср', 'Бс', 'Жм', 'Сб', 'Жс'].map(x => `<span>${x}</span>`).join('')}</div><div class="cal-g">${g}</div>
+        <div class="cal-f"><button data-d="${yesterday}" ${yesterday < minD || yesterday > maxD ? 'disabled' : ''}>Кеше</button><button data-d="${maxD}">Соңғы күн</button></div>`;
+      place();
+    };
+    box.onclick = e => { const b = e.target.closest('button'); if (!b || b.disabled) return; if (b.dataset.m) { ym = b.dataset.m; draw(); } else if (b.dataset.d) { closeCal(); go(b.dataset.d); } };
+    draw(); setTimeout(() => { const on = box.querySelector('.on') || box.querySelector('.cal-g button:not(:disabled)'); if (on) on.focus({preventScroll: true}); }, 0);
+    closeCal.off = e => { if (e.type === 'keydown' ? e.key === 'Escape' : !box.contains(e.target) && !anchor.contains(e.target)) closeCal(); };
+    setTimeout(() => { document.addEventListener('mousedown', closeCal.off); document.addEventListener('keydown', closeCal.off); addEventListener('resize', closeCal); addEventListener('scroll', closeCal, {passive: true}); }, 0);
+  }
+  function closeCal() { const b = document.getElementById('cal'); if (b) b.remove(); if (closeCal.off) { document.removeEventListener('mousedown', closeCal.off); document.removeEventListener('keydown', closeCal.off); removeEventListener('resize', closeCal); removeEventListener('scroll', closeCal); closeCal.off = null; } }
+  function toast(m) { const t = $('toast'); t.textContent = m; t.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove('on'), 2200); }
+  function copy(s, msg) {
+    const fallback = () => { const ta = document.createElement('textarea'); ta.value = s; ta.className = 'copy'; ta.readOnly = true; $('cp-box').innerHTML = ''; $('cp-box').appendChild(ta); ta.focus(); ta.select();
+      let ok = false; try { ok = document.execCommand('copy'); } catch (e) { /* blocked */ } toast(ok ? msg : 'Көшіру үшін мәтінді белгілеп, Ctrl+C басыңыз'); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(s).then(() => toast(msg), fallback); else fallback();
+  }
+  render();
+};
+(function () {
+  const q = new URLSearchParams(location.search), kind = q.get('card') === 'sales' || /sales/i.test(location.pathname) ? 'sales' : 'leads';
+  const date = q.get('d') || '';
+  const fail = msg => { document.getElementById('app').innerHTML = '<div class="load"><header class="hero"><div class="eyebrow">EduApp</div><h1>Есеп ашылмады</h1></header><div class="err"><b>Деректер жүктелмеді.</b><br>' + msg + '<br><br><button class="btn pri" onclick="location.reload()">Қайта көру</button></div></div>'; };
+  const DEMO = !API, src = s => DEMO ? '/demo/' + (s ? 'sales' : 'crm') + '.json' : API + (s ? '?sales=1' : '');   // демо: без Apps Script
+  const get = (n) => fetch(src(kind === 'sales'), {redirect: 'follow'}).then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .catch(e => n > 0 ? new Promise(res => setTimeout(res, 1500)).then(() => get(n - 1)) : Promise.reject(e));
+  const sheet = kind === 'sales' ? fetch(src(false), {redirect: 'follow'}).then(r => r.ok ? r.json() : null).catch(() => null) : Promise.resolve(null);   // 15.10: сатылым карточкасына CRM керек (ОП кестесі алынды)
+  Promise.all([get(1), sheet]).then(([data, sd]) => {
+    if (data.error) throw new Error(data.error);
+    if (kind === 'sales' ? !data.cube : !data.main) throw new Error('Google Apps Script ескі нұсқада — жаңа нұсқаны жариялаңыз.');
+    if (sd && sd.main) data.crm = sd;
+    RENDER({kind, date, url: '', api: API, data});
+  }).catch(e => fail(String(e && e.message || e)));
+})();
+</script>
+</body>
+</html>
