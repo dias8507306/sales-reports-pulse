@@ -100,9 +100,9 @@ The data follows weekday seasonality, an autumn trend and realistic funnel ratio
 
 **Note on tests:** 16 of the 122 tests asserted exact values or legacy formats of the original private snapshot. They are marked `skip` with that reason. The other 106 run against the generated demo data.
 
-## Қысқаша (KZ)
+## Кратко (RU)
 
-EduApp Pulse — онлайн-білім беру компаниясының сату бөліміне арналған аналитика: amoCRM, төлем платформасы және Google-кестелер негізінде лидтер, рассылкалар, менеджерлер, түсім мен шығындар бойынша дашборд және күнделікті есеп карточкалары.
-Apps Script тек агрегаттарды қайтарады (аты-жөн, телефон шықпайды), дашборд — бір HTML-файл, PDF/CSV/WhatsApp экспорты бар.
-Демо: `python -m http.server 8790` → `Атлас_отчёты.html` (PIN 1234); деректерді қайта жасау — `node scripts/generate-demo-data.cjs`.
-Барлық деректер кездейсоқ жасалған, бренд атаулары өзгертілген.
+EduApp Pulse — аналитика для отдела продаж онлайн-образования: дашборд и ежедневные карточки отчётов по лидам, рассылкам, менеджерам, выручке и расходам на основе amoCRM, платёжной платформы и Google-таблиц.
+Apps Script отдаёт только агрегаты (без ФИО и телефонов), дашборд — один HTML-файл с экспортом в PDF/CSV/WhatsApp.
+Демо: `python -m http.server 8790` → `Атлас_отчёты.html` (PIN 1234); пересоздать данные — `node scripts/generate-demo-data.cjs`.
+Все данные сгенерированы случайно, названия брендов изменены.
